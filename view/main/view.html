@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../../public/css/main.css" rel="stylesheet" type="text/css">
+    <link href="../../public/fontAwesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script src="../../public/js/jquery-1.12.4.min.js"></script>
+    <script src="../../public/js/index.js"></script>
+    <style>
+
+        body{
+            background:#E8DFD8  url("../../public/images/top.jpg")50% top scroll no-repeat;
+            cursor: url(../../public/images/default.cur),default;
+            background-position: 0 30px;
+            position: relative;
+
+        }
+        #top_header{
+            height: 30px;
+            background: #d7cec5;
+        }
+        a{
+            cursor: url(../../public/images/link.cur),pointer;
+        }
+        header {
+            width: 1000px;
+            margin: auto;
+            margin-top: 40px;
+        }
+        header h1 {
+            font-size: 22px;
+            text-shadow: #fff 1px 1px 1px;
+        }
+        header p {
+            margin: 17px 0 0 0;
+            text-shadow: #000 1px 1px 1px;
+            color: #fff;
+        }
+        .cloud {
+            width: 100%;
+            clear: both;
+            overflow: hidden;
+        }
+        .cloud h3 {
+            line-height: 40px;
+            color: #38485A;
+            font-size: 18px;
+            border-bottom: 1px solid #E6E6E6;
+            height: 40px;
+        }
+        .cloud ul {
+            margin: 20px 0;
+        }
+        .cloud ul li:first-child {
+            background: #036564;
+        }
+        .cloud ul li:nth-child(8n-5) {
+            background: #3FB8AF;
+        }
+        .cloud ul li {
+            line-height: 24px;
+            height: 24px;
+            display: block;
+            background: #999;
+            float: left;
+            padding: 3px 11px;
+            margin: 10px 10px 0 0;
+            border-radius: 8px;
+            -moz-transition: all 0.5s;
+            -webkit-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            transition: all 0.5s;
+        }
+        .cloud ul li:nth-child(8n-3) {
+            background: #FC9D9A;
+        }
+        .cloud ul li:nth-child(8n-2) {
+            background: #EDC951;
+        }
+        .cloud ul li:last-child {
+            background: #3299BB;
+        }
+        .cloud ul li:nth-child(8n-4) {
+            background: #FE4365;
+        }
+        .cloud ul li:nth-child(8n-6) {
+            background: #EB6841;
+        }
+        .cloud ul li:nth-child(8n-7) {
+            background: #8A9B0F;
+        }
+        .cloud ul li:nth-child(8n) {
+            background: #83AF9B;
+        }
+        .cloud ul li:nth-child(8n-1) {
+            background: #C8C8A9;
+        }
+        a{
+            text-decoration: none;
+        }
+        .mainRight h2 {
+            border-bottom: #FFF 1px solid;
+            width: 100%;
+            overflow: hidden;
+            font-size: 14px;
+            margin: 10px 0;
+            font-family: "微软雅黑";
+        }
+        h2 p {
+            background: #333;
+            width: 180px;
+            height: 25px;
+            margin: 15px 0 0 10px;
+            line-height: 25px;
+            height: 25px;
+            color: #fff;
+            text-align: center;
+            box-shadow: #999 4px 5px 1px;
+        }
+        .vcard {
+            margin: 10px 0;
+            padding: 10px;
+        }
+        .news {
+            height: 282px;
+            list-style: none;
+            overflow: hidden;
+        }
+        .news li a {
+            color:black;
+            font-weight: bold;
+            display: block;
+            line-height: 22px;
+            height: 22px;
+            -webkit-transition: all 0.5s;
+        }
+        .news li a:hover{
+            display: inline;
+            margin-left: 25px;
+        }
+        .news li {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            background: url(../../public/images/list.gif) left no-repeat;
+            padding-left: 20px;
+
+        }
+        .banner {
+            height: 260px;
+            width: 750px;
+            overflow: hidden;
+        }
+        #showpic{
+            height: 280px;
+            width: 540px;
+            background-size: cover;
+            float: left;
+        }
+        .slide-text {
+            width: 200px;
+            background: #fff;
+            height: 280px;
+            overflow: hidden;
+            float: right;
+            margin-right: 10px;
+        }
+        .text01 {
+            margin: 0px auto;
+            margin-bottom: 4px;
+            border: 1px solid #FFCC00;
+            background-color: #FFFFF7;
+            /*height: 130px;*/
+        }
+        .text02 {
+            margin: 0px auto;
+            margin-bottom: 4px;
+            border: 1px solid #CCEFF5;
+            background-color: #FAFCFD;
+            /*height: 130px;*/
+        }
+        #fixed_footer{
+            position: absolute;
+            right: 50px;
+            bottom: 80px;
+            position: fixed;
+            width: 58px;
+            z-index: 102410;
+            height: 58px;
+        }
+        #top{
+            background: url(../../public/images/icons.png) no-repeat center #111;
+            background-position: 13px 5px;
+            background-size: cover;
+            width: 58px;
+            height: 58px;
+            display: inline-block;
+            display: none;
+            box-shadow: 0px 1px 0px rgba(255,255,255,.1), inset 0px 1px 1px rgba(0,0,0,.7);
+            border-radius: 50%;
+        }
+        .iavatar {
+
+            width: 130px;
+            height: 130px;
+            border-radius: 100%;
+            overflow: hidden;
+            border: #FFF 4px solid;
+            float: left;
+        }
+        .iavatar a{
+            display: block;
+            padding-top: 129px;
+            width: 160px;
+            background: url(../../public/images/21a4462309f79052782f28490ff3d7ca7bcbd591.jpg) no-repeat;
+            background-size: cover;
+            background-position: -20px;
+        }
+        #canvas{
+            position: absolute;
+            right: 30px;
+            top:100px;
+        }
+        .list{
+            padding: 10px 30px;
+            text-align: center;
+            color: #777;
+            position: relative;
+
+            margin-bottom: 25px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.5) url(../../public/images/blogbgs.png) no-repeat right top;
+        }
+        .list p{
+            text-align: justify;
+
+        }
+        .col{
+            color: #515151 !important;
+            text-align: left;
+            width: 450px;
+            font-size: 12px;
+            border: 2px dotted #777;
+            left: 10px;
+        }
+
+    </style>
+</head>
+<body style="position: relative;">
+<div id="top_header">
+    <div style="float: right;margin-right: 50px;line-height: 20px;" id="header_right">
+        <a href=""> <img src="../../public/images/weibo%20(1).png" width="20" height="20" style="margin-top: 3px"/></a>
+        <a href=""><img src="../../public/images/youxiang.png" width="20" height="20"/></a>
+        <a href="javascript:void(0)" id="login">登录</a>|
+        <a href="javascript:void(0)" id="register">注册</a>
+    </div>
+    {%if userInfo.uid%}
+    <div id="userInfo" style="display: block">
+        <span class="colDark">{{userInfo.uname}}</span>
+        {%if userInfo.isAdmin==1 %}
+        <span class="colDanger">您好，管理员！</span>
+        <a href="/admin">进入管理界面</a>
+        {%else%}
+        <span class="colDanger">你好，欢迎光临我的博客！</span>
+        {%endif%}
+        <span class="colDark"><a href="javascript:;" id="logout">退出</a></span>
+    </div>
+    {%else%}
+    <div class="rightBox" id="loginBox" style="display:none">
+        <div class="title"><span>登录</span><i id="close" class="fa fa-remove"></i></div>
+        <div class="line"><span class="colDark">用户名：</span><input name="username" type="text"/><em></em></div>
+        <div class="line"><span class="colDark">密码：</span><input name="password" type="password"/><em></em></div>
+        <div class="line"><span class="colDark"></span><button> 登 录</button></div>
+        <p class="textRight">还没注册？<a href="javascript:;" class="colMint" >马上注册</a>　</p>
+        <p class="colWarning textCenter"></p>
+    </div>
+    <div class="rightBox" id="registerBox" style="display:none">
+        <div class="title"><span>注册</span><i id="res" class="fa fa-remove"></i></div>
+        <div class="line"><span class="colDark" >用户名：</span><input name="username" type="text"/></div>
+        <div class="line"><span class="colDark">密码：</span><input name="password" type="password"/></div>
+        <div class="line"><span class="colDark">确认：</span><input name="repassword" type="password"/></div>
+        <div class="line"><span class="colDark"></span><button>注 册</button></div>
+        <p class="textRight">已有账号？<a href="javascript:;" class="colMint">马上登录</a>　</p>
+        <p class="colWarning textCenter"></p>
+    </div>
+    {%endif%}
+</div>
+
+
+
+
+
+
+    <main class="clear">
+        <div class="mainLeft">
+            <div class="list">
+                <h1>{{content.title}}</h1>
+
+                <p>{{content.content}}</p>
+                <p class="col" style="margin-top: 30px;">
+                    作者：<span class="colInfo">{{content.uname}}</span>
+                    时间：<span class="colInfo">{{content.addTime |date('Y年m月d日 H:i:s')}}</span>
+                    阅读：<span class="colInfo">{{content.views}}</span>
+                    评论：<span class="colInfo">{%if content.comments%}{{content.comments}}{%else%}0{%endif%}</span>
+                </p>
+            </div>
+
+            <div class="message">
+                <h2>文章评论</h2>
+
+                {%if userInfo.uid%}
+                <p class="textLeft">{{userInfo.uname}}</p>
+                <p class="textLeft clear">
+                    <textarea id="messageContent"></textarea>
+                    <input type="hidden" id="contentId" value="{{content.cid}}" />
+                    <button id="messageBtn" class="submit">提交</button>
+                </p>
+                {%else%}
+                <p class="bgDanger" style="line-height:30px;">你还没有登陆，请先登陆</p>
+                {%endif%}
+                <div class="mark">评论</div><div class="redline"></div>
+
+                    <div class="title-tag">最新评论</div>
+            <div class="messageList" style="clear:both;">
+                  <div><img src=""/></div>
+                    <div class="messageBox">
+                        <p class="name clear">
+                            <span class="f1">评论人</span>
+                            <span class="fr">2018年8月20日 16:25:30</span>
+                        </p>
+                        <p>这个文章写的不错</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="mainRight">
+
+
+
+            <h2><p>博客分类</p></h2>
+
+                <ul class="news">
+                    <!--模板引擎的循环-->
+                    {% for type in types%}
+                    {% if type.tid == mytype%}
+                    <li><a href="/?mytype={{type.tid}}" class="active">{{type.tname}}</a>
+                        {%else%}
+                    <li><a href="/?mytype={{type.tid}}">{{type.tname}}</a></li>
+                    {%endif%}
+                    {%endfor%}
+                </ul>
+
+
+
+            <h2><p>近期文章</p></h2>
+            <ul class="news">
+                {% for content in con%}
+                <li><a href="/view?cid={{content.cid}}">{{content.title}}</a></li>
+                {%endfor%}
+            </ul>
+
+
+            <!--标签云-->
+            <div class="cloud">
+                <h3>标签云</h3>
+                <ul>
+                    <li><a href="/">个人博客</a></li>
+                    <li><a href="/">web开发</a></li>
+                    <li><a href="/">前端设计</a></li>
+                    <li><a href="/">Html</a></li>
+                    <li><a href="/">CSS3</a></li>
+                    <li><a href="/">Html5+css3</a></li>
+                    <li><a href="/">百度</a></li>
+                    <li><a href="/">Javasript</a></li>
+                    <li><a href="/">web开发</a></li>
+                    <li><a href="/">前端设计</a></li>
+                    <li><a href="/">Html</a></li>
+                    <li><a href="/">CSS3</a></li>
+                    <li><a href="/">Html5+css3</a></li>
+                    <li><a href="/">百度</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <div id="fixed_footer">
+    <a href="#" id="top"></a>
+    </div>
+    <div class="copyright textCenter">Copyright © ycinfo 版权所有 | 京ICP备xxxx号</div>
+
+
+</body>
+</html>

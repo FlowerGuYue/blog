@@ -1,0 +1,594 @@
+/* LESS Document */
+body {
+  margin: 0px;
+  background: #ebebeb;
+  font-family: '微软雅黑';
+  font-size: 14px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+button {
+  border: none;
+}
+.bgDefault {
+  background-color: #515151!important;
+  color: #FFF;
+}
+.bgPrimary {
+  background-color: #579ddb!important;
+  color: #FFF;
+}
+.bgInfo {
+  background-color: #46b9d8!important;
+  color: #FFF;
+}
+.bgSuccess {
+  background-color: #97c664!important;
+  color: #FFF;
+}
+.bgMint {
+  background-color: #48c5a3!important;
+  color: #FFF;
+}
+.bgWarning {
+  background-color: #eaa642!important;
+  color: #FFF;
+}
+.bgDanger {
+  background-color: #f76447!important;
+  color: #FFF;
+}
+.mark{
+
+  width: 66px;
+  height: 30px;
+  line-height: 30px;
+  color: red;
+  font-size: 18px;
+  float: left;
+  background: url("../../public/images/cmtlist-bg-active.png");
+}
+.redline{
+  float: left;
+  border-bottom:1px solid red;
+  height: 30px;
+  width: 623px;
+}
+.title-tag{
+  float: left;
+  width: 100px;
+  height: 18px;
+  margin-right: 13px;
+  margin-top: 10px;
+  font-size: 16px;
+ line-height: 18px;
+  font-family: "Microsoft YaHei";;
+  color: red;
+  font-size: 16px;
+  background: url("../../public/images/title-tag.png") no-repeat;
+}
+.bgPink {
+  background-color: #e15671!important;
+  color: #FFF;
+}
+.bgPurple {
+  background-color: #986291!important;
+  color: #FFF;
+}
+.bgDark {
+  background-color: #363c40!important;
+  color: #FFF;
+}
+.bgBlue {
+  background-color: #27b9dd!important;
+  color: #FFF;
+}
+.bgGray {
+  background-color: #CCC!important;
+  color: #FFF;
+}
+.colDefault {
+  color: #515151 !important;
+  text-align:left;
+  width: 450px;
+  position: absolute;
+  bottom:0px;
+  font-size: 12px;
+  border:2px dotted #777;
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+}
+.colPrimary {
+  color: #579ddb !important;
+}
+.colInfo {
+  color: #46b9d8 !important;
+}
+.time{
+
+  padding-left: 20px;
+  background: url("../../public/images/mynewsbg.png") no-repeat ;
+  background-position: 0px -47px;
+
+}
+.read{
+  padding-left: 20px;
+  background: url("../../public/images/mynewsbg.png") no-repeat ;
+  background-position: 0px -73px;
+}
+.comm{
+  padding-left: 20px;
+  background: url("../../public/images/mynewsbg.png") no-repeat ;
+  background-position: 0px -23px;
+}
+.colSuccess {
+  color: #97c664 !important;
+}
+.colMint {
+  color: #48c5a3 !important;
+}
+.colWarning {
+  color: #eaa642 !important;
+}
+.colDanger {
+  color: #f76447 !important;
+}
+.colPink {
+  color: #e15671 !important;
+}
+.colPurple {
+  color: #986291 !important;
+}
+.colDark {
+  color: #363c40 !important;
+}
+.colBlue {
+  color: #27b9dd !important;
+}
+.textRight {
+  text-align: right;
+}
+.textLeft {
+  text-align: left;
+}
+.textCenter {
+  text-align: center;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clear:after,
+.clear:before {
+  content: "";
+  display: table;
+}
+.clear:after {
+  clear: both;
+}
+.clear {
+  *zoom: 1;
+}
+header {
+  height:150px;
+  position: relative;
+  overflow: hidden;
+}
+header .backimg {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+header .backimg img {
+  margin: auto;
+  display: block;
+}
+header .logo {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 5;
+  text-align: center;
+}
+header .logo span {
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+header .logo img {
+  display: inline-block;
+  vertical-align: middle;
+}
+nav {
+  margin: 0 0 15px 0;
+  width: 1200px;
+  height: 64px;
+  margin: 0 auto;
+}
+.navigation {
+  width: 1200px;
+  height: 64px;
+  background: url(../../public/images/00002637.png) no-repeat;
+  font-family: "微软雅黑";
+}
+nav .menu {
+  position: relative;
+  margin-left: 70px;
+  padding-top: 10px;
+}
+nav .menu li{
+  float: left;
+  width: 80px;
+  text-align: center;
+  position: relative;
+  line-height: 46px;
+  list-style: none;
+}
+
+nav .menu a {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  font-size: 15px;
+
+}
+nav .menu a:hover, nav .menu .active {
+  background:#d7cfc4;
+  color: #FFF;
+  font-weight: bold;
+  border-radius: 40px 0;
+  animation: myblog 0.5s;
+}
+@keyframes myblog
+{
+  from {border-radius:0;background: none;}
+  to {border-radius: 40px 0;background:#d7cfc4;}
+}
+
+main {
+  width: 1140px;
+
+  margin: 35px auto 0px;
+  background: url("../../public/images/sidebg.png") right bottom no-repeat;
+}
+main .mainLeft {
+  width: 750px;
+  float: left;
+}
+main .mainLeft .listBox {
+  padding: 10px 30px;
+  text-align: center;
+  color: #777;
+  height:210px;
+  position: relative;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.5) url(../../public/images/blogbgs.png) no-repeat right top;
+}
+main .mainLeft .listBox:hover{
+  background-color: white;
+}
+.listBox #pic {
+  float: left;
+  width: 165px;
+  height:137px;
+  overflow: hidden;
+  cursor: pointer;
+  margin-top: 33px;
+}
+
+.listBox h1 {
+  font-size: 22px;
+  font-weight: bold;
+  transition: all .5s;
+  margin-bottom: 10px;
+  text-align: left;
+}
+.listBox  h2 {
+  background: url(../../public/images/newsbg03.png) no-repeat left 10px center;
+  border-bottom: #000 2px solid;
+  line-height: 40px;
+  font-size: 14px;
+  padding-left: 30px;
+  color: #000;
+  text-align: left;
+}
+
+.listBox ul {
+  float: right;
+  line-height: 22px;
+  width: 480px;
+  color: #777;
+
+}
+main .listBoxMore {
+  cursor: pointer;
+}
+main .mainLeft .listBox .function {
+  /*padding: 10px 0px;*/
+  text-align: right;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+
+  /*margin: 5px 0px 0px;*/
+}
+main .mainLeft .listBox .function.bortop {
+  border-top: 1px solid #ddd;
+}
+main .mainLeft .listBox .function a {
+  display: inline-block;
+  background: #e67e22;
+  text-align: center;
+  width: 100px;
+  height: 34px;
+  line-height: 34px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 12px;
+  font-family: '微软雅黑';
+  text-decoration: none;
+}
+main .mainLeft .textBox {
+  width: 658px;
+  height: 280px;
+  border: 1px solid #ddd;
+  line-height: 30px;
+  padding: 10px;
+}
+main .mainLeft .em {
+  font-size: 12px;
+  float: right;
+}
+.message{
+  padding: 10px 30px;
+  text-align: center;
+  color: #777;
+  position: relative;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.5) url(../../public/images/blogbgs.png) no-repeat right top;
+}
+main .mainLeft .message textarea {
+  float: left;
+  padding: 10px;
+  width: 580px;
+  height: 48px;
+  border: 1px solid #ff4b4b;
+  outline: 0;
+  resize: none;
+}
+main .mainLeft .message .submit {
+  margin-top: -1px;
+  float: left;
+  padding: 10px;
+  width: 76px;
+  height: 72px;
+  background: #ff4b4b;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+main .mainLeft .messageBox {
+  border-radius: 5px;
+  padding: 5px 10px 10px;
+  margin-bottom: 10px;
+  text-align: left;
+
+}
+main .mainLeft .messageBox .name {
+  border-bottom: 1px solid #fff;
+  line-height: 36px;
+  font-size: 16px;
+}
+main .mainLeft .messageBox p {
+  margin: 0px;
+}
+main .mainRight {
+  width: 340px;
+  float: right;
+  margin-right:20px;
+}
+ .rightBox {
+  background: #fff;
+  padding: 16px 30px;
+  margin-bottom: 30px;
+  position: absolute;
+   left: 500px;
+   top: 100px;
+   position: fixed;
+   z-index: 100;
+}
+ .rightBox .title {
+  border-bottom: 1px solid #ebebeb;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.rightBox .title span {
+  display: inline-block;
+  margin-bottom: -1px;
+  height: 36px;
+  line-height: 36px;
+  border-bottom: 1px solid #e67e22;
+  padding: 0px 20px 0px 0px;
+  position: relative;
+}
+.title #close{
+  margin-right: 0;
+  width: 20px;
+  height:20px;
+  color: black;
+  position: absolute;
+  right:10px;
+  top:10px;
+  cursor: url(../../public/images/link.cur),pointer;
+}
+.title #res{
+  margin-right: 0;
+  width: 20px;
+  height:20px;
+  color: black;
+  position: absolute;
+  right:10px;
+  top:10px;
+  cursor: url(../../public/images/link.cur),pointer;
+}
+.rightBox button {
+  background: #e67e22;
+  width: 100%;
+  height: 34px;
+  cursor: pointer;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 12px;
+  font-family: '微软雅黑';
+}
+ .rightBox .line {
+  margin-bottom: 10px;
+  position: relative;
+}
+ .rightBox .line.error em {
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  top: 8px;
+  right: 25px;
+  cursor: pointer;
+  background: url(../images/close.png) no-repeat center center;
+  background-size: 80% 80%;
+}
+.rightBox .line span {
+  width: 60px;
+  display: inline-block;
+  text-align: right;
+}
+ .rightBox .line input {
+  width: 210px;
+  height: 34px;
+  line-height: 34px;
+  border: 1px solid #ddd;
+  background: none;
+  padding: 0px 5px;
+}
+ .rightBox .line button {
+  background: #e67e22;
+  width: 222px;
+  height: 34px;
+  cursor: pointer;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 12px;
+  font-family: '微软雅黑';
+}
+.rightBox .line em {
+  display: none;
+}
+#userInfo{
+  line-height: 30px;
+  float: right;
+  position: absolute;
+  right: 30px;
+  top: 0;
+  background: #d7cec5;
+
+}
+dfn {
+  text-align: left;
+  font-style: normal;
+  display: block;
+  font-size: 14px;
+  line-height: 26px;
+  height:80px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+dfn p{
+  overflow: hidden;
+}
+
+/**
+ * 分页
+ */
+.pager {
+  padding: 20px;
+  margin-bottom: 30px;
+  background: #fff;
+  background: rgba(255,255,255,0.5);
+}
+.pager ul {
+  list-style: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.pager ul li {
+  display: inline;
+}
+.pager ul li a {
+  text-decoration: none;
+  color: #333;
+}
+.pager .previous>a, .pager .previous>span {
+    float: left;
+}
+.pager .next>a, .pager .next>span {
+    float: right;
+}
+
+footer {
+  background: #202020;
+}
+footer .footMain {
+  width: 1140px;
+  margin: 0px auto;
+}
+footer .title {
+  border-bottom: 1px solid #ebebeb;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+footer .title em {
+  display: inline-block;
+  margin-bottom: -1px;
+  height: 36px;
+  line-height: 36px;
+  border-bottom: 1px solid #e67e22;
+  padding: 0px 20px 0px 0px;
+  color: #fff;
+  font-style: normal;
+}
+footer .fotBox {
+  width: 28%;
+  float: left;
+  padding: 20px 0px;
+  margin: 0px 2%;
+  color: #979797;
+}
+footer .fotBox span {
+  display: inline-block;
+  padding: 3px 5px;
+  border: 1px solid #303030;
+  margin: 5px;
+  color: #979797;
+}
+.copyright {
+  height: 79px;
+  background: #111111;
+  line-height: 79px;
+  border-top: 1px solid #303030;
+  color: #555;
+}

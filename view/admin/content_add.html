@@ -1,0 +1,92 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+
+<ol class="breadcrumb">
+    <li><a href="/">管理首页</a></li>
+    <li><span>内容添加</span></li>
+</ol>
+
+<h3>内容添加</h3>
+
+<form role="form" method="post">
+
+    <div class="form-group">
+        <label for="title">分类：</label>
+        <select name="category" id="category" class="form-control">
+            {%for type in types%}
+            <option value="{{type.tid}}">{{type.tname}}</option>
+            {%endfor%}
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="title">标题：</label>
+        <input type="text" class="form-control" id="title" placeholder="请输入内容标题" name="title">
+    </div>
+
+    <div class="form-group">
+        <label for="description">简介：</label>
+        <textarea name="description" id="description" class="form-control" rows="5" placeholder="请输入内容简介"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="content">内容：</label>
+        <textarea name="content" id="content" class="form-control" rows="10" placeholder="请输入内容"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="content">图片：</label><input type="file" name="images" id="images" onchange="previewMultipleImage()"/>
+    <div style="width:200px;margin-right:20px;">
+        <fieldset id="news_pic_show">
+            <legend>图片预览</legend>
+            <img src="" height="200" width="200"/>
+        </fieldset>
+    </div>
+    </div>
+    <br/>
+    <button type="submit" class="btn btn-primary" id="sub" onclick="sub()">提交</button>
+    <br /><br />
+</form>
+<script>
+    //预览图片
+    function previewMultipleImage(){
+        var preview = document.querySelector("#news_pic_show img");
+        var file  = document.querySelector("input[type=file]").files[0];
+        var reader = new FileReader();
+        reader.addEventListener("load", function () {
+            preview.src = reader.result;
+        }, false);
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    }
+    function sub() {
+        //首先得到数据
+        var title=$("#title").val();
+        var description=$("#description").val();
+        var content=$("#content").val();
+        //文件上传的ajax请求
+        $.ajaxFileUpload({
+            url:'/content/add',
+            fileElementId:"images", //要上传的inp标签的id，好找到上传的文件
+            data:{title:title,description:description,content:content},
+            dataType:"json",  //数据格式的类型   要求是json
+            success:function (data) {  //当请求成功的时候  回调的函数
+                console.log(data);
+                if(data=="1"){
+                    alert("添加失败");
+
+                }else if(data=="2"){
+                        alert("添加成功");
+                }
+            },
+            error:function (data,status,e) {
+                console.log(e);//当请求失败的时候，回掉的函数
+            }
+        });
+    }
+</script>
+
+
+{% endblock %}

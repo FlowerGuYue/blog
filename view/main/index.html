@@ -1,0 +1,591 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>博客</title>
+    <link href="../../public/css/main.css" rel="stylesheet" type="text/css">
+    <link href="../../public/fontAwesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script src="../../public/js/jquery-1.12.4.min.js"></script>
+    <script src="../../public/js/index.js"></script>
+
+</head>
+<style>
+
+    body{
+        background:#E8DFD8  url("../../public/images/top.jpg")50% top scroll no-repeat;
+        cursor: url(../../public/images/default.cur),default;
+        background-position: 0 30px;
+        position: relative;
+
+    }
+    #top_header{
+        height: 30px;
+        background: #d7cec5;
+        position:relative;
+    }
+    a{
+        cursor: url(../../public/images/link.cur),pointer;
+    }
+    header {
+        width: 1000px;
+        margin: auto;
+        margin-top: 40px;
+    }
+    header h1 {
+        font-size: 22px;
+        text-shadow: #fff 1px 1px 1px;
+    }
+    header p {
+        margin: 17px 0 0 0;
+        text-shadow: #000 1px 1px 1px;
+        color: #fff;
+    }
+    .cloud {
+        width: 100%;
+        clear: both;
+        overflow: hidden;
+    }
+    .cloud h3 {
+        line-height: 40px;
+        color: #38485A;
+        font-size: 18px;
+        border-bottom: 1px solid #E6E6E6;
+        height: 40px;
+    }
+    .cloud ul {
+        margin: 20px 0;
+    }
+    .cloud ul li:first-child {
+        background: #036564;
+    }
+    .cloud ul li:nth-child(8n-5) {
+        background: #3FB8AF;
+    }
+    .cloud ul li {
+        line-height: 24px;
+        height: 24px;
+        display: block;
+        background: #999;
+        float: left;
+        padding: 3px 11px;
+        margin: 10px 10px 0 0;
+        border-radius: 8px;
+        -moz-transition: all 0.5s;
+        -webkit-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+    }
+    .cloud ul li:nth-child(8n-3) {
+        background: #FC9D9A;
+    }
+    .cloud ul li:nth-child(8n-2) {
+        background: #EDC951;
+    }
+    .cloud ul li:last-child {
+        background: #3299BB;
+    }
+    .cloud ul li:nth-child(8n-4) {
+        background: #FE4365;
+    }
+    .cloud ul li:nth-child(8n-6) {
+        background: #EB6841;
+    }
+    .cloud ul li:nth-child(8n-7) {
+        background: #8A9B0F;
+    }
+    .cloud ul li:nth-child(8n) {
+        background: #83AF9B;
+    }
+    .cloud ul li:nth-child(8n-1) {
+        background: #C8C8A9;
+    }
+    a{
+        text-decoration: none;
+    }
+    .mainRight h2 {
+        border-bottom: #FFF 1px solid;
+        width: 100%;
+        overflow: hidden;
+        font-size: 14px;
+        margin: 10px 0;
+        font-family: "微软雅黑";
+    }
+    h2 p {
+        background: #333;
+        width: 180px;
+        height: 25px;
+        margin: 15px 0 0 10px;
+        line-height: 25px;
+        height: 25px;
+        color: #fff;
+        text-align: center;
+        box-shadow: #999 4px 5px 1px;
+    }
+    .vcard {
+        margin: 10px 0;
+        padding: 10px;
+    }
+    .news {
+        height: 282px;
+        list-style: none;
+        overflow: hidden;
+
+    }
+    .news li a {
+        color: #666;
+        display: block;
+        line-height: 22px;
+        height: 22px;
+        -webkit-transition: all 0.5s;
+    }
+    .news li a:hover{
+        display: inline;
+        margin-left: 25px;
+    }
+    .news li {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        background: url(../../public/images/list.gif) left no-repeat;
+        padding-left: 20px;
+    }
+    .banner {
+        height: 260px;
+        width: 750px;
+        overflow: hidden;
+    }
+    #showpic{
+        height: 280px;
+        width: 750px;
+        background-size: cover;
+        float: left;
+    }
+    .slide-text {
+        width: 200px;
+        background: #fff;
+        height: 280px;
+        overflow: hidden;
+        float: right;
+        margin-right: 10px;
+    }
+    .text01 {
+        margin: 0px auto;
+        margin-bottom: 4px;
+        border: 1px solid #FFCC00;
+        background-color: #FFFFF7;
+        /*height: 130px;*/
+    }
+    .text02 {
+        margin: 0px auto;
+        margin-bottom: 4px;
+        border: 1px solid #CCEFF5;
+        background-color: #FAFCFD;
+        /*height: 130px;*/
+    }
+    #fixed_footer{
+        position: absolute;
+        right: 50px;
+        bottom: 80px;
+        position: fixed;
+        width: 58px;
+        z-index: 102410;
+        height: 58px;
+    }
+    #top{
+        background: url(../../public/images/icons.png) no-repeat center #111;
+        background-position: 13px 5px;
+        background-size: cover;
+        width: 58px;
+        height: 58px;
+        display: inline-block;
+        display: none;
+        box-shadow: 0px 1px 0px rgba(255,255,255,.1), inset 0px 1px 1px rgba(0,0,0,.7);
+        border-radius: 50%;
+    }
+    .iavatar {
+
+        width: 130px;
+        height: 130px;
+        border-radius: 100%;
+        overflow: hidden;
+        border: #FFF 4px solid;
+        float: left;
+    }
+    .iavatar a{
+        display: block;
+        padding-top: 129px;
+        width: 130px;
+        background: url(../../public/images/0.jpg) no-repeat;
+        background-size: cover;
+
+    }
+    #canvas{
+        position: absolute;
+        right: 70px;
+        top: 10px;
+    }
+    .about {
+        background: #f4efec url(../../public/images/banner.png) no-repeat top center ;
+        overflow: hidden;
+
+    }
+    .avatar {
+        margin: 80px auto 20px;
+        width:90px;
+        height:90px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+    .abname {
+        color: #3f3f3f;
+        font-weight: bold;
+        font-size: 16px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .abposition {
+        color: #1abc9c;
+        text-align: center;
+    }
+    .abtext {
+        padding: 20px 40px;
+        color: #9a9a9a;
+        line-height: 26px;
+    }
+
+
+</style>
+
+<body style="position: relative;">
+<!--头部-->
+<div id="top_header">
+    <div style="float: right;margin-right: 50px;line-height: 20px;" id="header_right">
+        <a href=""> <img src="../../public/images/weibo%20(1).png" width="20" height="20" style="margin-top: 3px"/></a>
+        <a href=""><img src="../../public/images/youxiang.png" width="20" height="20"/></a>
+        <a href="javascript:void(0)" id="login">登录</a>|
+        <a href="javascript:void(0)" id="register">注册</a>
+    </div>
+    {%if userInfo.uid%}
+    <div id="userInfo" style="display: block">
+        <span class="colDark">{{userInfo.uname}}</span>
+        {%if userInfo.isAdmin==1 %}
+            <span class="colDanger">您好，管理员！</span>
+            <a href="/admin">进入管理界面</a>
+        {%else%}
+        <span class="colDanger">你好，欢迎光临我的博客！</span>
+        {%endif%}
+        <span class="colDark"><a href="javascript:;" id="logout">退出</a></span>
+    </div>
+    {%else%}
+    <div class="rightBox" id="loginBox" style="display:none">
+        <div class="title"><span>登录</span><i id="close" class="fa fa-remove"></i></div>
+        <div class="line"><span class="colDark">用户名：</span><input name="username" type="text" id="uname"/><em></em></div>
+        <div class="line"><span class="colDark">密码：</span><input name="password" type="password" id="pwd"/><em></em></div>
+        <div class="line"><span class="colDark"></span><button> 登 录</button></div>
+        <p class="textRight">还没注册？<a href="javascript:;" class="colMint" >马上注册</a>　</p>
+        <p class="colWarning textCenter"></p>
+    </div>
+    <div class="rightBox" id="registerBox" style="display:none">
+        <div class="title"><span>注册</span><i id="res" class="fa fa-remove"></i></div>
+        <div class="line"><span class="colDark" >用户名：</span><input name="username" type="text"/></div>
+        <div class="line"><span class="colDark">密码：</span><input name="password" type="password"/></div>
+        <div class="line"><span class="colDark">确认：</span><input name="repassword" type="password"/></div>
+        <div class="line"><span class="colDark"></span><button>注 册</button></div>
+        <p class="textRight">已有账号？<a href="javascript:;" class="colMint">马上登录</a>　</p>
+        <p class="colWarning textCenter"></p>
+    </div>
+    {%endif%}
+</div>
+<!--头像博客部分-->
+<header>
+    <div class="iavatar">
+        <a href="#"></a>
+
+    </div>
+    <h2 style="margin-left: 30px;">小花个人博客</h2>
+   <p>个人博客，属于我的小世界</p>
+</header>
+<!--导航栏-->
+<nav>
+    <div class="navigation ">
+
+    <ul class="menu">
+
+
+            <!--模板引擎的循环-->
+            {% for type in types%}
+            {% if type.tid == mytype%}
+            <li><a href="/?mytype={{type.tid}}" class="active">{{type.tname}}</a>
+                {%else%}
+            <li><a href="/?mytype={{type.tid}}">{{type.tname}}</a></li>
+            {%endif%}
+            {%endfor%}
+
+
+    </ul>
+    </div>
+</nav>
+<!--内容-->
+<main class="clear">
+    <!--左边部分-->
+    <div class="mainLeft">
+        <div class="banner">
+            <img src="../../public/images/1.jpg" id="showpic" />
+
+        </div>
+        <h2>最新文章</h2>
+       <hr style="border-bottom: #db6d4c 4px solid;"/>
+        {% for content in contents %}
+        <div class="listBox">
+            <div id="pic">
+                <a href="" title="" target="_blank">
+
+                    <img src="{{content.images}}" original="https://static.yezismile.com/data/photo/day_20180830/201808301152218711_s.jpeg" style="width: 167.5px; height: 137px; display: block;" alt="《孩子你慢慢来》书评">
+                </a>
+            </div>
+            <ul>
+                <h1>{{content.title}}</h1>
+                <dfn>{{content.description}}
+
+                </dfn>
+                <p class="colDefault">
+                  <span class="colInfo">作者：{{content.uname}}</span> -
+                    <span class="colInfo time">{{content.addTime|date('Y年m月d日 H:i:s')}}</span> -
+                   <span class="colInfo read">阅读：({{content.views}})</span> -
+                    <span class="colInfo comm">评论:
+                                ({%if content.comments%}
+                                        {{content.comments}}
+                                {%else%}
+                                    0
+                                {%endif%})
+                          </span>
+                </p>
+
+                <div class="function"><a href="/view?cid={{content.cid}}">阅读全文</a></div>
+            </ul>
+        </div>
+        {%endfor%}
+
+        <div class="pager">
+            <ul class="clear">
+                <li class="previous">
+                    {%if page<=1%}
+                    <span>当前为第一页</span>
+                    {%else%}
+                    <a href="?page={{page-1}}&mytype={{mytype}}">上一页</a>
+                    {%endif%}
+                </li>
+
+
+                <li>
+                    <strong> {{page}} / {{pages}} </strong>
+                </li>
+
+                <li class="next">
+                    {%if page>=pages%}
+                    <span>当前为最后一页</span>
+                    {%else%}
+                    <a href="?page={{page+1}}&mytype={{mytype}}">下一页</a>
+                    {%endif%}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--右边部分-->
+    <div class="mainRight">
+        <div class="about">
+            <div class="avatar"> <img src="../../public/images/0.jpg" alt="" width="90" height="90"> </div>
+            <p class="abname">姓名：胡花</p>
+            <p class="abposition">在校大学生</p>
+            <div class="abtext"> 一个90后草根女站长！18年入行。一直潜心研究web前端技术，一边工作一边积累经验，分享一些个人博客资料，以及SEO优化等心得。 </div>
+        </div>
+        <div calss="match" style="width: 340px;height: 200px;position: relative">
+            <canvas id="canvas" width="200" height="200"></canvas>
+        </div>
+            <h2><p>近期文章</p></h2>
+
+            <ul class="news">
+                {% for content in con%}
+                <li><a href="/view?cid={{content.cid}}">{{content.title}}</a></li>
+                {%endfor%}
+            </ul>
+
+            <h2><p>友情链接</p></h2>
+            <ul class="news" style="height:50px;">
+                <li><a href="/">胡花个人博客</a></li>
+            </ul>
+
+        <!--标签云-->
+        <div class="cloud">
+            <h3>标签云</h3>
+            <ul>
+                <li><a href="/">个人博客</a></li>
+                <li><a href="/">web开发</a></li>
+                <li><a href="/">前端设计</a></li>
+                <li><a href="/">Html</a></li>
+                <li><a href="/">CSS3</a></li>
+                <li><a href="/">Html5+css3</a></li>
+                <li><a href="/">百度</a></li>
+                <li><a href="/">Javasript</a></li>
+                <li><a href="/">web开发</a></li>
+                <li><a href="/">前端设计</a></li>
+                <li><a href="/">Html</a></li>
+                <li><a href="/">CSS3</a></li>
+                <li><a href="/">Html5+css3</a></li>
+                <li><a href="/">百度</a></li>
+            </ul>
+        </div>
+    </div>
+</main>
+
+<div class="copyright textCenter">Copyright © baidu.com 版权所有 | 京xxx备xxxxxxxxx号</div>
+<div id="fixed_footer">
+    <a href="#" id="top"></a>
+</div>
+
+<script>
+    //时钟
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    var width = canvas.width;
+    var height = canvas.height;
+    var r = width / 2;
+    function drawBg() {
+        //重置原点
+        context.save();
+        context.translate(r,r);
+
+        // 画时钟外圈
+        context.beginPath();
+        context.arc(0, 0, r - 5, 0, 2*Math.PI, true);
+        context.lineWidth = 8;
+        context.stroke();
+
+        //画小时数
+        var hour = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2];
+
+        hour.forEach(function(num,i){
+            var rad = 2 * Math.PI / 12 * i;
+            var x = Math.cos(rad) * (r - 30);
+            var y = Math.sin(rad) * (r - 30);
+            context.font = "18px sans-serif"
+            context.textAlign = "center";
+            context.textBaseline = "middle";
+            context.fillText(num, x, y);
+        });
+
+        // 画刻度
+        for (var i = 0; i < 60; i++) {
+            var rad = 2 * Math.PI / 60 * i;
+            var x = Math.cos(rad) * (r - 18);
+            var y = Math.sin(rad) * (r - 18);
+
+            context.beginPath();
+            if(i%5 == 0){
+                context.fillStyle = "#000";
+                context.arc(x, y, 2, 0, 2*Math.PI, true);
+            }
+            else {
+                context.fillStyle = "#bbb";
+                context.arc(x, y, 2, 0, 2*Math.PI, true);
+            }
+            context.fill();
+        }
+    }
+    // 画时针
+    function drawHour(hour, minute) {
+        context.save();
+        var rad = 2 * Math.PI / 12 * hour + 2 * Math.PI / 12 * minute / 60;
+        context.beginPath();
+        context.rotate(rad);
+        context.moveTo(0, 15);
+        context.lineTo(0, -r/2);
+        context.lineWidth = 5;
+        context.lineCap = "round";
+        context.stroke();
+        context.restore();
+    }
+    // 画分针
+    function drawMinute(minute) {
+        context.save();
+        var rad = 2 * Math.PI / 60 * minute;
+        context.beginPath();
+        context.rotate(rad);
+        context.moveTo(0, 18);
+        context.lineTo(0, -r + 40);
+        context.lineWidth = 3;
+        context.lineCap = "round";
+        context.stroke();
+        context.restore();
+    }
+    // 画秒针
+    function drawSecond(second) {
+        context.save();
+        var rad = 2 * Math.PI / 60 * second;
+        context.beginPath();
+        context.rotate(rad);
+        context.moveTo(0, 25);
+        context.lineTo(2, 25);
+        context.lineTo(-2, 25);
+        context.lineTo(-1, -r + 25);
+        context.lineTo(1, -r + 25);
+        context.lineTo(2, 25);
+        context.lineWidth = 1;
+        context.fillStyle = "#f00";
+        context.fill();
+        context.restore();
+    }
+    // 画中心点
+    function drawDot() {
+        context.beginPath();
+        context.arc(0, 0, 4, 0, 2*Math.PI,true);
+        context.fillStyle = "#fff";
+        context.fill();
+    }
+    // 绘制真实时间
+    function draw() {
+        context.clearRect(0, 0, width, height);
+        var now = new Date();
+        var hour = now.getHours();
+        var minute = now.getMinutes();
+        var second = now.getSeconds();
+        drawBg();
+        drawHour(hour,minute);
+        drawMinute(minute);
+        drawSecond(second);
+        drawDot();
+        context.restore();
+    }
+
+    draw();
+    setInterval(function(){
+        draw();
+    },1000);
+    var curIndex=0;
+    //时间间隔 单位毫秒
+    var timeInterval=2000;
+    var arr=new Array();
+    arr[0]="1.jpg";
+    arr[1]="2.jpg";
+    arr[2]="3.jpg";
+    arr[3]="4.jpg";
+
+    setInterval(changeImg,timeInterval);
+    function changeImg()
+    {
+        var obj=document.getElementById("showpic");
+        if (curIndex==arr.length-1)
+        {
+            curIndex=0;
+        }
+        else
+        {
+            curIndex+=1;
+        }
+        obj.src="../../public/images/"+arr[curIndex];
+    }
+
+
+</script>
+</body>
+</html>

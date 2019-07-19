@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<!-- saved from url=(0024)http://www.mizuiren.com/ -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>秋叶网络博客 | WEB前端开发技术个人博客</title>
+<meta name="keywords" content="web前端,javascript设计,秋叶,前端技术,秋叶博客,wordpress博客,网络博客,程序编程,音乐博客,ajax技术,综合博客">
+<meta name="description" content="专注WEB前端技术、javascript程序设计、深度挖掘前端技术个人独立博客，提供网站建设技术支持以及前端解决方案，包括博主秋叶的个人原创经验以及优秀资源分享，一个注重创新与互动的网站。">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=0.8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="author" content="秋叶，一个迷醉技术与生活的人">
+<link rel="stylesheet" href="./秋叶网络博客 _ WEB前端开发技术个人博客_files/style.css" type="text/css" media="screen">
+<link rel="shortcut icon" href="http://www.mizuiren.com/wp-content/themes/QIUYE/favicon.ico" type="image/x-icon">
+<link rel="pingback" href="http://www.mizuiren.com/xmlrpc.php">
+<!--[if lt IE 9]>
+	<script>function killErr(){return true;}window.onerror=killErr;</script>
+        <script src="http://www.mizuiren.com/wp-content/themes/QIUYE/js/ie-common.js"></script>
+<![endif]-->
+<script src="./秋叶网络博客 _ WEB前端开发技术个人博客_files/saved_resource"></script><script src="./秋叶网络博客 _ WEB前端开发技术个人博客_files/jquery-1.8.3.js.下载"></script><script src="./秋叶网络博客 _ WEB前端开发技术个人博客_files/jquery-1.8.3.js(1).下载"></script>
+<script src="./秋叶网络博客 _ WEB前端开发技术个人博客_files/common.js.下载"></script>
+
+</head>
+<body>
+<div class="fix_side"><div id="myload"><div id="circle"></div><div id="circle1"></div></div>
+  <nav class="topliner">
+    <span class="icon-celan"></span>
+    <a rel="nofollow" class="header_logo" style="cursor:default;"></a>
+    <ul class="guid">
+	<li><a href="http://www.mizuiren.com/">返回首页</a></li>
+	<li><a href="javascript:void(0);" onclick="AddFavorite(window.location)">收藏网站</a></li>
+	<li><a href="http://www.mizuiren.com/10.html">免费空间</a></li>
+  	<li><a href="http://music.mizuiren.com/">酷动音乐</a></li>
+	<li><i class="icon-music" id="icon-music" style="cursor:pointer;" title="播放并展开音乐列表"></i></li>
+	<li id="zanzhu"><a>赞助</a>
+		<div class="person">
+			<img src="./秋叶网络博客 _ WEB前端开发技术个人博客_files/shoukuan.jpg" alt="支付宝收款,微信收款">
+			<ul><li>Hugh 已赞助30元</li><li>宋小强 已赞助10元</li></ul>
+		</div>
+	</li>
+    </ul>
+<span class="user_logged"><a class="llogin">登录</a></span>
+    <div class="header-search">
+	<div class="share clearfix"><a class="dao">分享到：</a><a class="qzone" title="分享到QQ空间">QQ空间</a><a class="t_qq" title="分享给QQ好友">QQ好友</a><a class="sina" title="分享到新浪微博">新浪微博</a><a class="douban" title="分享到豆瓣">豆瓣</a><a class="renren" title="分享到Facebook">脸书</a><a class="taobao" title="分享到淘宝">淘宝网</a></div>
+	<form method="get" id="navsearchform" action="http://zhannei.baidu.com/cse/search" target="_blank"><input id="see" class="search-text radius" type="text" value="百度站内搜索... " name="q" onfocus="if (this.value == &#39;百度站内搜索... &#39;)  {this.value = &#39;&#39;;}" onblur="if (this.value == &#39;&#39;) {this.value = &#39;百度站内搜索... &#39;;}"><input type="hidden" name="s" value="6385106920243042933"><input type="hidden" name="entry" value="1"></form>
+    </div>
+  </nav>
+  <div id="music" title="打开播放器"></div>
+</div>
+<div id="base">
+	<div class="base_child">
+  <header>
+    <div id="header">
+      <div id="blogtitle"><h1><a href="http://www.mizuiren.com/">秋叶网络博客</a></h1></div>
+      <div id="subtitle">红豆生南国，春来发几枝</div>
+      <div class="ad1"></div>
+    </div>
+    <menu id="menu">
+			<div class="menu_child">
+<ul id="nav" class="menu"><li id="menu-item-4456" class="current-menu-item"><a href="http://www.mizuiren.com/">博客首页</a></li>
+<li id="menu-item-4722"><a href="http://www.mizuiren.com/shuo">秋叶微语</a></li>
+<li id="menu-item-1656"><a href="http://www.mizuiren.com/article">网站导航</a>
+<ul class="sub-menu">
+	<li id="menu-item-4244"><a href="http://www.mizuiren.com/tags">博客标签</a></li>
+	<li id="menu-item-3257"><a href="http://www.mizuiren.com/category/txzk">天下杂侃</a></li>
+	<li id="menu-item-1664"><a href="http://www.mizuiren.com/category/wjcs">常识大全</a></li>
+</ul>
+</li>
+<li id="menu-item-1660"><a href="http://www.mizuiren.com/category/wljs">网络技术</a>
+<ul class="sub-menu">
+	<li id="menu-item-6015"><a href="http://www.mizuiren.com/category/qdsj">前端编程</a></li>
+	<li id="menu-item-4755"><a href="http://www.mizuiren.com/category/wpjiaocheng">WP教程</a></li>
+	<li id="menu-item-3263"><a href="http://www.mizuiren.com/category/wytx">网页特效</a></li>
+	<li id="menu-item-6016"><a href="http://www.mizuiren.com/category/wzjs">网站建设</a></li>
+</ul>
+</li>
+<li id="menu-item-4120"><a href="http://www.mizuiren.com/category/seoyh">SEO优化</a></li>
+<li id="menu-item-9"><a href="http://www.mizuiren.com/category/rjxz">资源分享</a>
+<ul class="sub-menu">
+	<li id="menu-item-3258"><a href="http://www.mizuiren.com/category/ymfx">网站模版</a></li>
+</ul>
+</li>
+<li id="menu-item-11"><a href="http://www.mizuiren.com/257.html">关于秋叶</a>
+<ul class="sub-menu">
+	<li id="menu-item-5930"><a href="http://www.mizuiren.com/125.html">博客条款</a></li>
+	<li id="menu-item-3256"><a href="http://www.mizuiren.com/category/gybz">秋叶心语</a></li>
+</ul>
+</li>
+<li id="menu-item-7408"><a href="http://www.mizuiren.com/tougao">文章投稿</a></li>
+<li id="menu-item-1682"><a href="http://www.mizuiren.com/liuyanban">留言板</a></li>
+</ul>     </div>
+	</menu>
+  <div id="rss">
+    <ul>
+      <li class="rssmail"><a rel="nofollow" data-url="http://t.cn/RhoIL0c" class="icon1" title="订阅博客"><span></span></a></li>
+      <li class="tqq"><a rel="nofollow" data-url="http://t.cn/RhoIL0t" class="icon2" title="QQ交流"><span></span></a></li>
+      <li class="tsina"><a rel="nofollow" data-url="http://t.qq.com/cmbudl" class="icon3" title="腾讯微博"><span></span></a></li>
+      <li class="rssmail"><a rel="nofollow" data-url="http://weibo.com/cmbdl" class="icon4" title="新浪微博"><span></span></a></li>
+    </ul>
+  </div>
+<div class="search">
+    <div class="box">
+      <form class="searchform" method="get" action="http://www.mizuiren.com/">
+        <input name="s" id="s" class="text" type="text" onblur="if (this.value ==&#39;&#39;) this.value=&#39;搜索博客内容...QQ群：184139138&#39;" onfocus="this.value=&#39;&#39;" onclick="if (this.value==&#39;搜索博客内容...QQ群：184139138&#39;) this.value=&#39;&#39;" value="搜索博客内容...QQ群：184139138">
+        <input name="ok" class="submit" type="submit" value="搜索">
+      </form>
+    </div><div class="info">热门搜索：<a href="http://www.mizuiren.com/tag/ajax" class="tag-link-746" title="6个话题" style="font-size: 12px;">ajax</a>   <a href="http://www.mizuiren.com/tag/facebook" class="tag-link-660" title="4个话题" style="font-size: 12px;">Facebook</a>   <a href="http://www.mizuiren.com/tag/jste-xiao" class="tag-link-704" title="4个话题" style="font-size: 12px;">js特效</a>   <a href="http://www.mizuiren.com/tag/seo" class="tag-link-30" title="15个话题" style="font-size: 12px;">SEO</a>   <a href="http://www.mizuiren.com/tag/seoyou-hua" class="tag-link-331" title="8个话题" style="font-size: 12px;">SEO优化</a>   <a href="http://www.mizuiren.com/tag/wordpress" class="tag-link-34" title="20个话题" style="font-size: 12px;">wordpress</a>   <a href="http://www.mizuiren.com/tag/wordpresszhu-ti" class="tag-link-635" title="4个话题" style="font-size: 12px;">wordpress主题</a>   <a href="http://www.mizuiren.com/tag/dai-ma" class="tag-link-49" title="4个话题" style="font-size: 12px;">代码</a>   <a href="http://www.mizuiren.com/tag/sou-suo-yin-qing" class="tag-link-333" title="9个话题" style="font-size: 12px;">搜索引擎</a>   <a href="http://www.mizuiren.com/tag/dian-nao" class="tag-link-134" title="7个话题" style="font-size: 12px;">电脑</a></div>
+</div>
+<aside id="topcontent">
+  <div id="leftremen">
+        <ul id="tab1">
+          <li class="on">最新文章</li>
+          <li>最终修改</li>
+          <li>热评文章</li>
+          <li>随机阅读</li>
+        </ul>
+	<div class="tbox">
+		<div id="tab1-content0"><!--最新文章-->
+		<ul>
+                    <li><span class="icon-new"></span><a href="http://www.mizuiren.com/497.html">查找闭合线条和非闭合线条</a><span class="new"></span></li>
+                    <li><span class="icon-new"></span><a href="http://www.mizuiren.com/496.html">判断一个点是否在一个多边形区域内</a><span class="new"></span></li>
+                    <li><span class="icon-new"></span><a href="http://www.mizuiren.com/495.html">JS给导线描边-非样式属性</a><span class="new"></span></li>
+                    <li><span class="icon-new"></span><a href="http://www.mizuiren.com/494.html">功能齐全好用的tooltip jquery插件</a><span class="new"></span></li>
+                    <li><span class="icon-new"></span><a href="http://www.mizuiren.com/493.html">简易无缝滚动功能齐全轮播组件</a><span class="new"></span></li>
+                    <li><span class="icon-new"></span><a href="http://www.mizuiren.com/491.html">Javascript截取混合中英文为等宽内容</a><span class="new"></span></li>
+                    <li><span class="icon-new"></span><a href="http://www.mizuiren.com/490.html">http-proxy代理nodejs服务器转发跨域资源</a><span class="new"></span></li>
+                  </ul>
+		</div>
+        <div id="tab1-content1"><!--最终修改-->
+		<ul>
+          <li><i class="icon-cai"></i><a href="http://www.mizuiren.com/421.html" title="最终修改于2018.08.31 10:42">理解js中的for循环</a></li><li><i class="icon-cai"></i><a href="http://www.mizuiren.com/96.html" title="最终修改于2018.08.31 10:34">《我们的故事》静态特效网页源码</a></li><li><i class="icon-cai"></i><a href="http://www.mizuiren.com/1686.html" title="最终修改于2018.08.31 10:33">轻量级wordpress手机浏览插件汉化和美化版</a></li><li><i class="icon-cai"></i><a href="http://www.mizuiren.com/1683.html" title="最终修改于2018.08.31 10:33">个人收集的一些免费空间提供商</a></li><li><i class="icon-cai"></i><a href="http://www.mizuiren.com/483.html" title="最终修改于2018.08.31 10:26">JavaScript脚本对LRC歌词折叠展开</a></li><li><i class="icon-cai"></i><a href="http://www.mizuiren.com/15.html" title="最终修改于2018.08.31 10:22">带你剖析淘宝代刷骗子伎俩</a></li><li><i class="icon-cai"></i><a href="http://www.mizuiren.com/495.html" title="最终修改于2018.08.03 15:24">JS给导线描边-非样式属性</a></li>		  </ul>
+        </div>
+        <div id="tab1-content2"><!--热评文章-->
+		<ul>
+                    <li><span class="icon-hot"></span><a href="http://www.mizuiren.com/10.html">免费网站空间ccaeo.com申请教程</a></li>
+                    <li><span class="icon-hot"></span><a href="http://www.mizuiren.com/141.html">纯代码给wordpress增加说说/微博/微语功能</a></li>
+                    <li><span class="icon-hot"></span><a href="http://www.mizuiren.com/125.html">秋叶博客由来介绍及其相关条款</a></li>
+                    <li><span class="icon-hot"></span><a href="http://www.mizuiren.com/327.html">JS实现控制HTML5背景音乐播放暂停</a></li>
+                    <li><span class="icon-hot"></span><a href="http://www.mizuiren.com/257.html">秋叶是谁？</a></li>
+                    <li><span class="icon-hot"></span><a href="http://www.mizuiren.com/318.html">让QQ游客也可以评论个人独立博客</a></li>
+                    <li><span class="icon-hot"></span><a href="http://www.mizuiren.com/28.html">真实网赚，推荐真实网络兼职，轻松月赚3000+</a></li>
+                  </ul>
+		</div>
+        <div id="tab1-content3"><!--随机文章-->
+		<ul>
+                    <li><span class="icon-suiji"></span><a href="http://www.mizuiren.com/924.html">有关宽带的服务商的常识</a></li>
+                    <li><span class="icon-suiji"></span><a href="http://www.mizuiren.com/212.html">挖掘有价值有潜力的长尾关键词</a></li>
+                    <li><span class="icon-suiji"></span><a href="http://www.mizuiren.com/470.html">Js、Css3仿手机QQ资料个性名片标签特效</a></li>
+                    <li><span class="icon-suiji"></span><a href="http://www.mizuiren.com/5312.html">Phpmyadmin文件sql导入报错解决办法</a></li>
+                    <li><span class="icon-suiji"></span><a href="http://www.mizuiren.com/273.html">TAB选项卡的简单切换特效</a></li>
+                    <li><span class="icon-suiji"></span><a href="http://www.mizuiren.com/319.html">Jquery和Javascript的区别与用法</a></li>
+                    <li><span class="icon-suiji"></span><a href="http://www.mizuiren.com/739.html">暴风影音去广告极速版</a></li>
+                  </ul>
+      </div>
+    </div>
+  </div>
+     <div id="middle"><!--最新评论-->
+	<ul>
+<li class="need-ajax"><div class="author-comment"><a rel="nofollow" data-url="http://www.museyule.com/" title="暮色" target="_blank"><span class="icon-newco"></span></a>说: </div><a class="pos-comment" rel="nofollow" data-url="/496.html#comment-9135" title="发表在 《判断一个点是否在一个多边形区域内》">支持老铁，技术宅啊！</a></li>
+<li class="need-ajax"><div class="author-comment"><a rel="nofollow" data-url="http://6ba6.com" title="ddy" target="_blank"><span class="icon-newco"></span></a>说: </div><a class="pos-comment" rel="nofollow" data-url="/214.html#comment-9133" title="发表在 《外链工具刷反链的原理》">6ba6*有需要的吗？</a></li>
+<li class="need-ajax"><div class="author-comment"><a rel="nofollow" data-url="https://www.wvwvwvvv.com" title="哟嚯音乐网" target="_blank"><span class="icon-newco"></span></a>说: </div><a class="pos-comment" rel="nofollow" data-url="/330.html#comment-9132" title="发表在 《用Html5造频谱播放的巅峰视觉盛宴》">:razz:  :razz:  :razz:  :razz:  :raz</a></li>
+<li class="need-ajax"><div class="author-comment"><a rel="nofollow" data-url="http://flash.ccaeo.com" title="闪客" target="_blank"><span class="icon-newco"></span></a>说: </div><a class="pos-comment" rel="nofollow" data-url="/10.html#comment-9129" title="发表在 《免费网站空间ccaeo.com申请教程》">emlog后台无法进入设置，其他正常。后台进设置的时候显示：该网页无法正</a></li>
+<li class="need-ajax"><div class="author-comment"><a rel="nofollow" data-url="" title="求解" target="_blank"><span class="icon-newco"></span></a>说: </div><a class="pos-comment" rel="nofollow" data-url="/2033.html#comment-9127" title="发表在 《wampserver无法启动之mysql疑难杂症》">一样
+解决了没 大神</a></li>
+<li class="need-ajax"><div class="author-comment"><a rel="nofollow" data-url="" title="站长" target="_blank"><span class="icon-newco"></span></a>说: </div><a class="pos-comment" rel="nofollow" data-url="/224.html#comment-9124" title="发表在 《Technetcal空间类型,价格和配置汇总》">为什么楼主说的套餐在官网找不到！！</a></li>
+<li class="need-ajax"><div class="author-comment"><a rel="nofollow" data-url="http://www.shanghaiyuanshiren.com" title="小爱" target="_blank"><span class="icon-newco"></span></a>说: </div><a class="pos-comment" rel="nofollow" data-url="/233.html#comment-9122" title="发表在 《博客网站百度蜘蛛抓取频次多少为正常》">我的网站一天才5次访问正常吗？*shanghaiyuanshire</a></li>
+<li class="need-ajax"><div class="author-comment"><a rel="nofollow" data-url="http://pengshanhai.top" title="大可爱" target="_blank"><span class="icon-newco"></span></a>说: </div><a class="pos-comment" rel="nofollow" data-url="/323.html#comment-9121" title="发表在 《Wordpress自定义评论列表制作》">这不是回调函数么</a></li></ul>
+     </div>
+    <div class="play" id="rightflash"><!--幻灯片-->
+      <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+      </ol>
+<ul>
+<li><a href="http://www.mizuiren.com/497.html"><img src="./秋叶网络博客 _ WEB前端开发技术个人博客_files/findcloseoutline.jpg" alt="查找闭合线条和非闭合线条" title="查找闭合线条和非闭合线条"></a></li>
+<li><a href="http://www.mizuiren.com/496.html"><img src="./秋叶网络博客 _ WEB前端开发技术个人博客_files/pintatpolyline.jpg" alt="判断一个点是否在一个多边形区域内" title="判断一个点是否在一个多边形区域内"></a></li>
+<li><a href="http://www.mizuiren.com/495.html"><img src="./秋叶网络博客 _ WEB前端开发技术个人博客_files/bordline.jpg" alt="JS给导线描边-非样式属性" title="JS给导线描边-非样式属性"></a></li>
+<li><a href="http://www.mizuiren.com/494.html"><img src="./秋叶网络博客 _ WEB前端开发技术个人博客_files/tooltip.jpg" alt="功能齐全好用的tooltip jquery插件" title="功能齐全好用的tooltip jquery插件"></a></li>
+<li><a href="http://www.mizuiren.com/493.html"><img src="./秋叶网络博客 _ WEB前端开发技术个人博客_files/banner-zz.jpg" alt="简易无缝滚动功能齐全轮播组件" title="简易无缝滚动功能齐全轮播组件"></a></li>
+</ul>
+    </div>
+</aside>
+</header>
+<div id="container">
+<article id="home_article"><!--begin container-->
+<div class="lujing"><span class="icon-home"></span>当前位置：<span class="icon-home"></span><a href="http://www.mizuiren.com/">秋叶网络博客</a>
+</div><dl id="post-497" class="post postindex">
+	<dt class="post_top"><a href="http://www.mizuiren.com/497.html">查找闭合线条和非闭合线条</a><span class="newe"></span>
+	<div class="date"><i class="icon-author"></i>作者：秋叶  <i class="icon-posttime"></i>发表时间：2018年8月29日</div>
+	</dt>
+	<div class="ad0"></div>
+<div class="pic"><img src="./秋叶网络博客 _ WEB前端开发技术个人博客_files/findcloseoutline.jpg" alt="查找闭合线条和非闭合线条"><em></em></div><dd>如果你有这样的场景： 1.在一堆的线段或者折线段内找出闭合折线段或者闭合边框。 2.把端点相连（相距安全距离之内）的多个线段合成一条折线段。 3.合成后的线段基础上闭合边框和非闭合边框进行分类。 4.收集它们的坐标信息加以利用。 那么你要好好看这篇文章，这篇文章专门解决了上述所有问题。 /* * …</dd><div class="info clear">
+<span class="icon-cate">目录: <a href="http://www.mizuiren.com/category/qdsj" rel="category tag">前端编程</a></span><span class="icon-tags">标签: <a href="http://www.mizuiren.com/tag/bian-kuang-suan-fa" rel="tag">边框算法</a>, <a href="http://www.mizuiren.com/tag/bi-he-bian-kuang" rel="tag">闭合边框</a></span><span class="icon-bubble">0条评论</span><span class="icon-kan"> 212次阅读</span></div>
+</dl>
+<dl id="post-496" class="post postindex">
+	<dt class="post_top"><a href="http://www.mizuiren.com/496.html">判断一个点是否在一个多边形区域内</a><span class="newe"></span>
+	<div class="date"><i class="icon-author"></i>作者：秋叶  <i class="icon-posttime"></i>发表时间：2018年8月28日</div>
+	</dt>
+	<div class="ad0"></div>
+<div class="pic"><img src="./秋叶网络博客 _ WEB前端开发技术个人博客_files/pintatpolyline.jpg" alt="判断一个点是否在一个多边形区域内"><em></em></div><dd>判断一个点，或者说某个物体是否在一个多边形内，或者说是否在某个区域内，在几何算法中还是比较常见的也比较实用的，如何判断呢，这在凸多边形里面应该比较容易，但是不规则多边形就需要比较特殊的方法了。无论是凹多边形，凸多边形，长歪了的各种多边形里面都适用。 射线法判断点是否在多边形内部：…</dd><div class="info clear">
+<span class="icon-cate">目录: <a href="http://www.mizuiren.com/category/qdsj" rel="category tag">前端编程</a></span><span class="icon-tags">标签: <a href="http://www.mizuiren.com/tag/ji-he-suan-fa" rel="tag">几何算法</a>, <a href="http://www.mizuiren.com/tag/duo-bian-xing-suan-fa" rel="tag">多边形算法</a></span><span class="icon-bubble">1条评论</span><span class="icon-kan"> 204次阅读</span></div>
+</dl>
+<dl id="post-495" class="post postindex">
+	<dt class="post_top"><a href="http://www.mizuiren.com/495.html">JS给导线描边-非样式属性</a><span class="newe"></span>
+	<div class="date"><i class="icon-author"></i>作者：秋叶  <i class="icon-posttime"></i>发表时间：2018年7月21日</div>
+	</dt>
+	<div class="ad0"></div>
+<div class="pic"><img src="./秋叶网络博客 _ WEB前端开发技术个人博客_files/bordline.jpg" alt="JS给导线描边-非样式属性"><em></em></div><dd>最近工作中做了个关于描边的故事，对，就是给导线描边，通俗的讲就是沿着线条勾勒出它的轮廓，细的线条貌似没什么意义，但是在较粗的导线上或者是细的线条放大后，就格外有用途了，比如说用线条给导线挖孔，给导线添加线条轮廓动画等等。 这里用到了一些技术知识点： 1. 三角函数、向量关系，线段关系…</dd><div class="info clear">
+<span class="icon-cate">目录: <a href="http://www.mizuiren.com/category/qdsj" rel="category tag">前端编程</a></span><span class="icon-tags">标签: <a href="http://www.mizuiren.com/tag/jsmiao-bian" rel="tag">JS描边</a>, <a href="http://www.mizuiren.com/tag/svg" rel="tag">svg</a></span><span class="icon-bubble">1条评论</span><span class="icon-kan"> 2079次阅读</span></div>
+</dl>
+<dl id="post-494" class="post postindex">
+	<dt class="post_top"><a href="http://www.mizuiren.com/494.html">功能齐全好用的tooltip jquery插件</a><span class="newe"></span>
+	<div class="date"><i class="icon-author"></i>作者：秋叶  <i class="icon-posttime"></i>发表时间：2017年11月10日</div>
+	</dt>
+	<div class="ad0"></div>
+<div class="pic"><img src="./秋叶网络博客 _ WEB前端开发技术个人博客_files/tooltip.jpg" alt="功能齐全好用的tooltip jquery插件"><em></em></div><dd>这是一个本人自己写的基于jquery的提示插件，只有js，不需要引入css等其他文件，只需在引入jq的前提下，把这段代码引入你的网站，你就可以通过调用jq其它方法一样使用本插件，主要功能就是tooltip，提示框组建，自定义参数配置功能包括，设置宽高，设置字体颜色，设置边框颜色，设置字体大小，设置浮…</dd><div class="info clear">
+<span class="icon-cate">目录: <a href="http://www.mizuiren.com/category/qdsj" rel="category tag">前端编程</a></span><span class="icon-tags">标签: <a href="http://www.mizuiren.com/tag/jq" rel="tag">jq插件</a>, <a href="http://www.mizuiren.com/tag/tooltip" rel="tag">tooltip</a></span><span class="icon-bubble">3条评论</span><span class="icon-kan"> 12823次阅读</span></div>
+</dl>
+<dl id="post-493" class="post postindex">
+	<dt class="post_top"><a href="http://www.mizuiren.com/493.html">简易无缝滚动功能齐全轮播组件</a><span class="newe"></span>
+	<div class="date"><i class="icon-author"></i>作者：秋叶  <i class="icon-posttime"></i>发表时间：2017年10月22日</div>
+	</dt>
+	<div class="ad0"></div>
+<div class="pic"><img src="./秋叶网络博客 _ WEB前端开发技术个人博客_files/banner-zz.jpg" alt="简易无缝滚动功能齐全轮播组件"><em></em></div><dd>因为平时不断需要用到轮播特效，又看不上插件，都是来一个就手写一个，写多了就写了个通用性较好的出来，以后都不用写了，直接调用。之前也有相关轮播的文章，而且印象中有几篇了。但这篇是更灵活，更通用，使用更傻瓜。使用细节注意看后面的段落。 无论是大图banner的轮播： 还是卡片式轮播，只要是…</dd><div class="info clear">
+<span class="icon-cate">目录: <a href="http://www.mizuiren.com/category/qdsj" rel="category tag">前端编程</a></span><span class="icon-tags">标签: <a href="http://www.mizuiren.com/tag/%e8%bd%ae%e6%92%ad%e7%89%b9%e6%95%88" rel="tag">轮播特效</a></span><span class="icon-bubble">3条评论</span><span class="icon-kan"> 13306次阅读</span></div>
+</dl>
+<dl id="post-491" class="post postindex">
+	<dt class="post_top"><a href="http://www.mizuiren.com/491.html">Javascript截取混合中英文为等宽内容</a><span class="newe"></span>
+	<div class="date"><i class="icon-author"></i>作者：秋叶  <i class="icon-posttime"></i>发表时间：2017年9月04日</div>
+	</dt>
+	<div class="ad0"></div>
+<div class="pic"><img src="./秋叶网络博客 _ WEB前端开发技术个人博客_files/36.jpg" alt="Javascript截取混合中英文为等宽内容"><em></em></div><dd>在javasrip中： "长度是都多少".length = 6 &nbsp;; "length".length = 6 ; 可以发现，“长度是都多少”和“length”的字数是一样的，但是长度却是中文长度明显大于英文长度，因为一个中文是两个字节，相当于两个英文。这是从字节上来看，如果从字形上来看，也差不多这个规律，因为部分英文占极短的宽度（简称…</dd><div class="info clear">
+<span class="icon-cate">目录: <a href="http://www.mizuiren.com/category/qdsj" rel="category tag">前端编程</a></span><span class="icon-tags">标签: <a href="http://www.mizuiren.com/tag/javascript" rel="tag">javascript</a>, <a href="http://www.mizuiren.com/tag/%e6%88%aa%e5%8f%96%e5%ad%97%e7%ac%a6%e4%b8%b2" rel="tag">截取字符串</a></span><span class="icon-bubble">6条评论</span><span class="icon-kan"> 15964次阅读</span></div>
+</dl>
+<dl id="post-490" class="post postindex">
+	<dt class="post_top"><a href="http://www.mizuiren.com/490.html">http-proxy代理nodejs服务器转发跨域资源</a><span class="newe"></span>
+	<div class="date"><i class="icon-author"></i>作者：秋叶  <i class="icon-posttime"></i>发表时间：2017年8月29日</div>
+	</dt>
+	<div class="ad0"></div>
+<div class="pic"><img src="./秋叶网络博客 _ WEB前端开发技术个人博客_files/21.jpg" alt="http-proxy代理nodejs服务器转发跨域资源"><em></em></div><dd>跨域问题是让前端很恼火的一件事情，这主要是浏览器为了安全所进行的限制，在原生native应用和服务器端是不存在跨域情况的。上篇文章已经说了，如果我们要使用存在跨域（以第三方网站来阐述，下同）的数据，那么可以通过后端发请求，去爬取页面的内容（简称爬虫），再把爬到的内容返回给前端。这是获…</dd><div class="info clear">
+<span class="icon-cate">目录: <a href="http://www.mizuiren.com/category/qdsj" rel="category tag">前端编程</a></span><span class="icon-tags">标签: <a href="http://www.mizuiren.com/tag/http-proxy" rel="tag">http-proxy</a>, <a href="http://www.mizuiren.com/tag/nodejs" rel="tag">nodejs</a>, <a href="http://www.mizuiren.com/tag/%e4%bb%a3%e7%90%86%e6%9c%8d%e5%8a%a1%e5%99%a8" rel="tag">代理服务器</a></span><span class="icon-bubble">4条评论</span><span class="icon-kan"> 16380次阅读</span></div>
+</dl>
+<dl id="post-489" class="post postindex">
+	<dt class="post_top"><a href="http://www.mizuiren.com/489.html">智取百度、谷歌分词技术实现智能模糊搜索</a><span class="newe"></span>
+	<div class="date"><i class="icon-author"></i>作者：秋叶  <i class="icon-posttime"></i>发表时间：2017年8月27日</div>
+	</dt>
+	<div class="ad0"></div>
+<div class="pic"><img src="./秋叶网络博客 _ WEB前端开发技术个人博客_files/27.jpg" alt="智取百度、谷歌分词技术实现智能模糊搜索"><em></em></div><dd>众所周知，wordpress的搜索相当糟糕，它是硬性（完全）匹配，为了实现博客智能模糊搜索功能，为了尽可能达到百度等各大搜索引擎的搜索效果，就要分词准确与分词扩展。用户输入一段话，如何将这句话根据词组切割成一段一段，通过这一段一段再去数据库匹配内容就是搜索技术的核心所在。 所谓智取就是爬…</dd><div class="info clear">
+<span class="icon-cate">目录: <a href="http://www.mizuiren.com/category/qdsj" rel="category tag">前端编程</a></span><span class="icon-tags">标签: <a href="http://www.mizuiren.com/tag/%e5%88%86%e8%af%8d%e6%90%9c%e7%b4%a2" rel="tag">分词搜索</a>, <a href="http://www.mizuiren.com/tag/sou-suo-yin-qing" rel="tag">搜索引擎</a></span><span class="icon-bubble">8条评论</span><span class="icon-kan"> 15964次阅读</span></div>
+</dl>
+<dl id="post-488" class="post postindex">
+	<dt class="post_top"><a href="http://www.mizuiren.com/488.html">Linux系统CentOs搭建nodejs服务器+Mongodb</a><span class="newe"></span>
+	<div class="date"><i class="icon-author"></i>作者：秋叶  <i class="icon-posttime"></i>发表时间：2017年8月24日</div>
+	</dt>
+	<div class="ad0"></div>
+<div class="pic"><img src="./秋叶网络博客 _ WEB前端开发技术个人博客_files/20.jpg" alt="Linux系统CentOs搭建nodejs服务器+Mongodb"><em></em></div><dd>准备工作：买Linux远程ecs服务器、远程连接登录服务器（细节不讲，工具建议用Xshell）、了解下linux命令。 登陆上去后把yun更新到最新版本 yum -y update 对服务器上软件进行升级： yum -y groupinstall "Development Tools" 开始安装node.js，先进入/usr/src文件夹，这个文件夹通常用来存放软件源代…</dd><div class="info clear">
+<span class="icon-cate">目录: <a href="http://www.mizuiren.com/category/wzjs" rel="category tag">网站建设</a></span><span class="icon-tags">标签: <a href="http://www.mizuiren.com/tag/centos" rel="tag">CentOs</a>, <a href="http://www.mizuiren.com/tag/nodejs-2" rel="tag">nodejs服务器</a></span><span class="icon-bubble">1条评论</span><span class="icon-kan"> 15698次阅读</span></div>
+</dl>
+<dl id="post-487" class="post postindex">
+	<dt class="post_top"><a href="http://www.mizuiren.com/487.html">Vue.js组件应用与嵌套数据递归组件案例</a><span class="newe"></span>
+	<div class="date"><i class="icon-author"></i>作者：秋叶  <i class="icon-posttime"></i>发表时间：2017年8月15日</div>
+	</dt>
+	<div class="ad0"></div>
+<div class="pic"><img src="./秋叶网络博客 _ WEB前端开发技术个人博客_files/code_and_indent.jpg" alt="Vue.js组件应用与嵌套数据递归组件案例"><em></em></div><dd>本篇文章主要讲的是嵌套数据递归展示的应用，因为它属于组件应用，so，标题就这样写了，也顺带讲讲组件的通用应用。vue的组件运用得好，可替代任何模板插件，甚至做得更好。 其它如模板、数据绑定就不说了，上官网看个几分钟就会了。但是对于组件应用以及组件的高级应用（递归），会让很多人理解起来…</dd><div class="info clear">
+<span class="icon-cate">目录: <a href="http://www.mizuiren.com/category/qdsj" rel="category tag">前端编程</a></span><span class="icon-tags">标签: <a href="http://www.mizuiren.com/tag/vue" rel="tag">vue组件</a>, <a href="http://www.mizuiren.com/tag/%e9%80%92%e5%bd%92" rel="tag">递归</a></span><span class="icon-bubble">2条评论</span><span class="icon-kan"> 16399次阅读</span></div>
+</dl>
+<div class="daohang"><div class="pagination need-ajax"><span class="current">1</span><a data-url="/page/2" class="inactive">2</a><a data-url="/page/3" class="inactive">3</a><a data-url="/page/4" class="inactive">4</a><a data-url="/page/5" class="inactive">5</a><a data-url="/page/6" class="inactive">6</a><a data-url="/page/7" class="inactive">7</a><a data-url="/page/8" class="inactive">8</a><a data-url="/page/9" class="inactive">9</a>....<a data-url="/page/2">下一页</a><a data-url="/page/50">最后一页</a></div>
+</div><br>
+<div id="friendlink">
+</div>
+<div id="script">
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?d9369436322d94b2213525fa8711e642";
+	  var s = document.getElementById("script");
+	  s.appendChild(hm);
+	})();
+	</script><script src="./秋叶网络博客 _ WEB前端开发技术个人博客_files/hm.js.下载"></script>
+	</div>
+</article></div><!--end container-->
+<footer><div id="footer"><div class="con"><div class="line">
+<a rel="nofollow" href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备15016346号-2</a>
+<a title="网站地图" href="http://www.mizuiren.com/article" target="_blank">网站地图</a>
+</div>
+<div class="line">
+<a rel="nofollow" data-url="http://t.cn/RhoIL0t"><img style="width:20px;" alt="qq在线聊天图标" src="./秋叶网络博客 _ WEB前端开发技术个人博客_files/qq.png" title="点击这里和我聊天"></a>
+<a rel="nofollow" data-url="http://tongji.baidu.com/web/6277486/overview/sole?siteId=7868365"><img style="width:20px;" alt="访问统计图标" src="./秋叶网络博客 _ WEB前端开发技术个人博客_files/tj.gif" title="统计"></a>
+<a rel="nofollow" data-url="http://t.cn/RhoIL0c"><img title="填写您的邮件地址，订阅精彩内容" src="./秋叶网络博客 _ WEB前端开发技术个人博客_files/mail.png" alt="订阅到邮箱图标"></a>
+</div>
+<div class="line">0.834秒内72次SQL查询|内存41.75MB</div>
+<div class="line">版权所有&nbsp;© 2014.06.01-2018.09.01&nbsp;秋叶网络博客</div>
+</div>
+<div id="extra">
+	<div id="hamburgermenu"></div><div class="overlay"></div>
+	<audio src="http://www.mizuiren.com/wp-content/themes/QIUYE/images/danji.ogg" id="danjim" preload="auto" data-delay="200"></audio>
+	<div id="back"></div>
+	<script src="./秋叶网络博客 _ WEB前端开发技术个人博客_files/SmoothScroll.js.下载"></script>
+	</div>
+</div>
+<div id="b2t" title="顶部 | 底部？"></div>
+</footer>
+</div>
+</div><!--end base -->
+<div id="qiuye-music"></div>
+
+</body></html>

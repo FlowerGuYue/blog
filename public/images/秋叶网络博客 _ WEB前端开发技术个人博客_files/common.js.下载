@@ -1,0 +1,819 @@
+'use strict'
+//全局变量
+var theme_dir = $('head>link[rel="stylesheet"]').attr('href').split('style.css')[0],
+    siteurl = document.location.href.match(/http:\/\/([^\/]+)\//i)[0],
+    scwidth = document.documentElement.clientWidth || document.body.clientWidth,
+    scheight = document.documentElement.clientHeight || document.body.clientHeight,
+    sitetitle = $("title","head").text();
+
+$(window).resize(function(){
+	scwidth = document.documentElement.clientWidth || document.body.clientWidth,
+	scheight = document.documentElement.clientHeight || document.body.clientHeight;
+	$('#errajax').css("line-height",(scheight+35)+"px")
+});
+
+$(function(){
+    init();
+});
+
+function getTimeNow(){
+    var time = new Date(),
+    hour = time.getHours() >= 10 ? time.getHours() : "0"+time.getHours(),
+    minute = time.getMinutes() >= 10 ? time.getMinutes() : "0"+time.getMinutes(),
+    second = time.getSeconds() >= 10 ? time.getSeconds() : "0"+time.getSeconds();
+    return hour +":" +minute+ ":" + second;
+}
+function getDate(){
+    var time = new Date(),
+        year = time.getFullYear(),
+        month = time.getMonth() >= 9 ? time.getMonth() + 1 : "0"+(time.getMonth() + 1),
+        date = time.getDate() >= 10 ? time.getDate() : "0"+time.getDate();
+    return year +"-" +month+ "-" + date;
+}
+function getNode(node,html){
+	var type = node.charAt(0);//获取类型，支持 #id、.class和tag三种类型；
+	var selector,data,regExp;
+	if(type === "#"){
+		selector = node.substring(1);
+		regExp = new RegExp('<[a-zA-Z]+[^>]+id=\"\\s*' + selector + '\\s*\"[^>]*>',"gi");
+	}else if(type === "."){
+		selector = node.substring(1);
+		regExp = new RegExp('<[a-zA-Z]+[^>]+class=(\"' + selector + '\"|\".*?\\s*' + selector + '\"|\"' + selector + '\\s*.*?\"|\".*?\\s*' + selector + '\\s*.*?\")[^>]*>',"gi");
+	}else{
+		selector = node;
+		regExp = new RegExp('<' + selector + '(>|\\s+[^>].*?>)',"gi");
+	}
+
+	if(!html.match(regExp)){
+		console.log("在指定字符串中没有找到节点！")
+		return "";
+	}
+	var matchArr = html.split(match);
+	var match = html.match(regExp)[0];
+	if(matchArr.length > 2){//多次匹配则取第一次匹配，其余忽略
+		var data = matchArr.filter(function(n,index){
+			return (index !== 0);
+		}).join("");
+	}else{
+		var data = html.split(match)[1];
+	}
+    var tagName = match.match(/<(([a-zA-Z]+)|([a-zA-Z]+)\s+)/)[1],
+    	tagLength = tagName.length + 3,
+        depth = 1,
+        output = '';
+    while(depth > 0) {
+        var temp = data.split('</' + tagName + '>')[0],
+            pos = temp.indexOf("<" + tagName),
+            i = 0;
+        while (pos !== -1) {
+            i++;
+            pos = temp.indexOf("<" + tagName, pos + 1);
+        }
+        depth = depth + i - 1;
+        output = output + data.split('</'+tagName+'>')[0] + '</'+tagName+'>';
+        data = data.substring(data.indexOf('</'+tagName+'>') + tagLength);
+    }
+    return output.slice(0,-tagLength);
+}
+
+function eventAnalyze(){
+    _hmt.push(['_setAccount', 'd9369436322d94b2213525fa8711e642']);
+    function eventCollect(ev,obj,category, action, opt_label){
+        var arg = arguments.length;
+        $("html").on(ev,obj,function(e){
+            if(ev === "keyup"){
+                var e = e || window.event;
+                var key_code = e.keyCode;
+                if(key_code === 13){
+                    _hmt.push(['_trackEvent', opt_label, action+"["+getTimeNow()+"]", category]);
+                }
+            }
+            if(arg === 5){
+                _hmt.push(['_trackEvent', opt_label, action+"["+getTimeNow()+"]", category]);
+            }else{
+                opt_label=$(this).text().replace(/\s/gi," ") || "未知按钮或图片";
+                _hmt.push(['_trackEvent', opt_label, action+"["+getTimeNow()+"]", category]);
+            }
+        });
+    }
+    $("html").on("click",".add-favorites",function(){
+        var opt_label=$(this).parent().find(".s-name").text();
+        _hmt.push(['_trackEvent', opt_label, "点击["+getTimeNow()+"]", '分享']);
+    });
+    $("html").on("click",".list-wrap.song li",function(){
+        var opt_label=$(this).find(".s-name").text();
+        _hmt.push(['_trackEvent', opt_label, "点击["+getTimeNow()+"]", '播放歌曲']);
+    });
+    eventCollect("click","#music","播放器", "点击", "打开播放器");
+    eventCollect("dbclick",".list-wrap.album li","打开专辑", "双击");
+    eventCollect("click",".guid>li:nth-child(-n+4)","导航", "点击");
+    eventCollect("click",".header-search .share a","分享", "点击");
+    eventCollect("keyup","#see","搜索", "键盘","百度搜索");
+    eventCollect("submit",".searchform","搜索", "form搜索", "站内搜索");
+    eventCollect("click",".icon-celan","侧栏", "点击","打开左侧栏");
+    eventCollect("click",".ce-menu ul li a","侧栏", "点击");
+    eventCollect("click","#wp-submit","登录", "点击");
+    eventCollect("click",".m-player-switch.off","播放器", "点击","收起播放器");
+    eventCollect("click",".lrc-wrap","播放器", "点击","全屏歌词");
+    eventCollect("click",".lyrics.lyrics-hover","播放器", "点击", "关闭歌词");
+    eventCollect("click","#b2t","滚动", "点击", "小女孩滚动页面");
+    eventCollect("click","#rss li.rssmail","社交", "点击", "订阅博客");
+    eventCollect("click","#rss li.tqq","社交", "点击", "QQ会话咨询");
+}
+
+function scrollWebPage(){
+	var realUrl = location.protocol+'//'+location.host+location.pathname;
+	var content = $("#container").offset().top;
+	if(realUrl.replace(/page\/\d+/,"") !== siteurl && !bar_top()){
+        $("body,html").animate({scrollTop:content},1000);
+        document.body.scrollTop = content;
+    }
+}
+
+function bar_top() {
+    if (document.documentElement && (document.documentElement.scrollTop)) {
+        return document.documentElement.scrollTop;
+    } else if (document.body && (document.body.scrollTop)) {
+        return document.body.scrollTop;
+    } else {
+        return 0;
+    }
+}
+
+function HTMLEncode(html) {
+    var temp = document.createElement("div");
+    (temp.textContent != null) ? (temp.textContent = html) : (temp.innerText = html);
+    var output = temp.innerHTML;
+    temp = null;
+    return output;
+}
+
+function showCode(element){
+	var $preHtml = $(element).html() || "";
+	var contents = $preHtml.split("\n");
+	var html = "<div class='qiuye-code'><pre><ul>";
+	contents.forEach(function(n,i){
+		var li = "<li>" +HTMLEncode(n)+ "</li>";
+		html += li;
+	});
+	html += "</ul></pre>";
+	html += '</div><span class="close-code"><i class="x"></i><i class="y"></i></span>';
+	$(".qiuye-content").append(html);
+	$(".qiuye-code").fadeIn("slow");
+	$(".close-code").off("click").click(function(){
+		$(".close-code").remove();
+		$(".qiuye-code").fadeOut("slow",function(){
+            $(".qiuye-code").remove();
+        });
+	})
+}
+
+function eventAll(){
+    var musicBtn = $("#icon-music");
+    var loader = $('#circle,#circle1');
+    var pause = $("#pause");
+    var play = $("#play");
+    var albumFrontCover = $("#albumFrontCover");
+    var frontMask = $(".front-mask");
+
+    function qiuyeload(){
+        $('#qiuye-music').load(''+theme_dir+'music/music.php?math='+Math.random()*99999,function(){
+            $('#circle,#circle1').fadeOut('slow');
+        });
+    }
+
+    $('#music').one('click',function() {
+        loader.fadeIn('slow');
+        qiuyeload();
+    });
+
+    musicBtn.click(function() {
+        var music = document.getElementById("musicEngine");
+        if(music && music.paused){
+            music.play();
+            $(this).removeClass("icon-music").addClass("icon-pausemu").attr('title','暂停音乐');
+            pause.show();
+            play.hide();
+            albumFrontCover.addClass("albumturn").removeClass("op-music-paused");
+            frontMask.hide();
+        }else if(music && music.play){
+            music.pause();
+            $(this).removeClass("icon-pausemu").addClass("icon-music").attr('title','播放音乐');
+            play.show();
+            pause.hide();
+            albumFrontCover.addClass("op-music-paused");
+            frontMask.show();
+        }else {
+            $('#music').click();
+        }
+    });
+
+    $('.llogin').click(function() {
+        loader.fadeIn('slow');
+        var back = $('#back');
+        back.load(theme_dir+'login/login.php',function(){
+            loader.fadeOut('slow');
+            back.show();
+        });
+    });
+
+    $(document).on("click",".showCode",function(){
+        showCode("#code-detail");
+    });
+
+    $(".item-link li a,#friendlink li a").each(function(e){
+        var href = this.href || $(this).attr("data-url");
+        $(this).prepend("<img alt='友情链接' src=" +siteurl+ "api/?url=" +href.replace(/^(http:\/\/[^\/]+).*$/, '$1').replace( 'http://', '' )+">");
+    });
+
+    $('.icon-celan').one('click',function() {
+        loader.fadeIn('slow');
+        $('#hamburgermenu').load('/sidebar',function(){
+            loader.fadeOut('slow');
+        });
+    });
+
+    var $nav = $('#nav li'),
+        $item = $('#nav .current-menu-item');
+
+    $nav.click(function(){
+        $nav.removeClass('current-menu-item');
+        $(this).addClass('current-menu-item');
+    });
+
+    if($item.length !== 0){
+        $($item.parent().parent()).addClass("current-menu-item")
+    };
+
+    $nav.hover(function() {
+        $('ul', this).stop().slideDown(200);
+    },function() {
+        $('ul', this).stop().slideUp(300);
+    });
+
+    $("#navsearchform").submit(function(){
+        var keyword = $("#see").val();
+        var id = $("input[name='s']").val();
+        var iframe = '<div id="bdsearch" style="width:100%;height:'+$(window).height()+'px;min-height:'+$(window).height()+'px;max-height:1500px;overflow:hidden;"><iframe src="http://zhannei.baidu.com/cse/search?q='+keyword+'&s='+id+'&entry=1" frameborder="none" scrolling="yes" style="background:#fff;width:100%;width:-webkit-calc(100% + 150px);width:-moz-calc(100% + 150px);width:-o-calc(100% + 150px);width:-ms-calc(100% + 150px);width:calc(100% + 250px);height:100%;margin-left:-150px;"></iframe></div>';
+        $(".base_child").html(iframe);
+        return false;
+    });
+}
+
+$(function($){
+    if(scwidth <= 800){
+        return false;
+    }
+    function SmallGirl(){
+        this.scrollTop = $(document).scrollTop();
+        this.girl = $("#b2t");
+        this.timer = null;
+        this.positon = 0,
+        this.hideTimer = null,
+        this.showTimer = null;
+    }
+
+    SmallGirl.prototype = {
+        init: function(){
+            var that = this;
+            if(!this.girl.length) {
+                $('#base').append('<div id="b2t" title="顶部 | 底部？"></div>');
+                this.girl = $("#b2t");
+            }
+            this.girl.css("top",(scheight/2-50)+"px");
+            this.initAnimatin();
+
+            $(window).scroll(function(){
+                that.scrollTop = $(document).scrollTop();;
+                that.girl.stop().animate({top:that.scrollTop+(scheight/2-50)+'px'},500);
+            });
+
+            this.hover();
+            this.girl.on('click',function(){
+                that.click();
+            });
+        },
+        initAnimatin:function(){
+            var that = this;
+            this.timer = setInterval(function(){
+                that.positon = 0;
+                that.show();
+                setTimeout(function(){
+                    that.positon = 11;
+                    that.hide();
+                },2500);
+            },8000);
+        },
+        click: function(){
+            var scrollT = $(document).scrollTop(),
+                docheight = $(document.body).height(),
+                $body = $('html,body'),
+                that = this;
+            if(scrollT > scheight/2){
+                $body.stop().animate({scrollTop:0},500);
+                this.girl.attr('title','返回底部');
+            }else{
+                $body.stop().animate({scrollTop:docheight+"px"}, 500);
+                this.girl.attr('title','返回顶部');
+            }
+            this.timer && clearInterval(this.timer);
+            this.initAnimatin();
+            this.hide();
+        },
+        show: function(){
+            this.hideTimer && clearTimeout(this.hideTimer);
+            var that = this;
+            if(this.positon < 11){
+                this.girl.css('background-position','0 -'+ 100*this.positon++ +'px');
+                this.showTimer = setTimeout(function(){
+                    that.show();
+                },80);
+            }
+        },
+        hide: function(){
+            this.showTimer && clearTimeout(this.showTimer);
+            var that = this;
+            if(this.positon < 14){
+                this.girl.css('background-position','0 -'+ 100*this.positon++ +'px');
+                this.hideTimer = setTimeout(function(){
+                    that.hide();
+                },50);
+            }else{
+                this.girl.css('background-position','0 0');
+                this.positon = 0;
+            }
+        },
+        hover: function(){
+            var that = this;
+            this.girl.hover(function(){
+                that.timer && clearInterval(that.timer);
+                that.positon = 0;
+                that.show();
+            },function(){
+                that.timer && clearInterval(that.timer);
+                that.positon = 11;
+                that.hide();
+                that.initAnimatin();
+            });
+        }
+    }
+    var smallGirl = new SmallGirl();
+    smallGirl.init();
+});
+
+(function(){
+	var url=document.domain,d="ir",a="w",c="zu",m="co",e="en",o=".",b="mi",i="m",f=a+a+a+o+b+c+d+e+o+m+i;
+	(url!==f) && (window.location = "//"+f);
+	(window.location != window.parent.location) && (window.parent.location = window.location);
+})();
+
+//栏目切换
+function slideTab(){
+    var $menus = $('#tab1>li'),
+        $tbox = $('.tbox>div'),
+        i = 0,
+        SetTabtime;
+    $menus.mouseout(function(){
+        SetTabtime = setInterval(zidonghuan,6000);
+    });
+    $menus.mouseover(function(){
+        clearInterval(SetTabtime);
+        i = $(this).index();
+        $(this).addClass('on').siblings().removeClass('on');
+        $tbox.eq(i).show('slow').siblings().stop().hide('slow');
+    });
+
+    SetTabtime = setInterval(zidonghuan,6000);
+
+    function zidonghuan(){
+        i < $menus.length-1 ? i=++i : i=0;
+        $menus.eq(i).addClass("on").siblings().removeClass("on");
+        $tbox.eq(i).show('slow').siblings().hide('slow');
+    }
+
+    $('.tbox').mouseover(function(){
+        clearInterval(SetTabtime);
+    }).mouseout(function(){
+        SetTabtime=setInterval(zidonghuan,6000);
+    });
+
+    $('#circle,#circle1').fadeOut('slow');
+}
+
+//幻灯片
+window.onload = function(){
+	var oPlay = document.getElementById('rightflash');
+	var oOl = oPlay.getElementsByTagName('ol')[0];
+	var aLi1 = oOl.getElementsByTagName('li');
+	var oUl = oPlay.getElementsByTagName('ul')[0];
+	var aLi2 = oUl.getElementsByTagName('li');
+	var i = 0,iNum = 0,direction = 0;
+	var times = null;
+	var play = null;
+    for(i = 0; i < aLi1.length; i++){
+    	aLi1[i].index = i;
+    	aLi1[i].onclick = function(){
+    	    iNum = this.index;
+    		show();
+    	};
+    }
+    function show(){
+    	for(i = 0; i<aLi1.length; i++){
+            aLi1[i].className = '';
+        }
+    	aLi1[iNum].className = 'active';
+    	startMove(-(iNum*200));
+    }
+    function autoPlay(){
+        if(iNum >= aLi1.length - 1){
+            direction = 1;
+        }else if(iNum <= 0){
+            direction = 0;
+        }
+    	if(direction==0) iNum++;
+    	else if(direction==1) iNum--;
+    	show();
+    }
+    play = setInterval(autoPlay,3000);
+    oPlay.onmouseover = function(){
+        clearInterval(play);
+    };
+    oPlay.onmouseout = function(){
+        play = setInterval(autoPlay,3000);
+    };
+    function startMove(iTarget){
+    	clearInterval(times);
+    	times = setInterval(function(){
+    		doMove(iTarget);
+    	},30);
+    }
+    function doMove(iTarget){
+    	var iSpeed = (iTarget-oUl.offsetTop) / 10;
+    	iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+    	if(oUl.offsetTop == iTarget){
+            clearInterval(times);
+        }else{
+            oUl.style.top = oUl.offsetTop+iSpeed+'px';
+        }
+    }
+    //changeBackground();
+    function changeBackground(){
+        var num = Math.floor(Math.random()*7) + 1;
+        var url = theme_dir + "images/background/bg" +num+ ".jpg";
+        $("body").css("background-image","url(" +url+ ")");
+    }
+};
+
+
+//收藏
+function AddFavorite(sURL, sTitle){
+    try{
+        window.external.addFavorite(sURL, sTitle);
+    }catch (e){
+        try{
+            window.sidebar.addPanel(sTitle, sURL, "");
+        }catch (e){
+            alert("加入收藏失败，请使用Ctrl+D进行添加");
+        }
+    }
+}
+
+function embedImage() {
+    var URL = prompt('请输入图片的 URL 网址:', 'http://');
+    if (URL) {
+        var tag = '[img]' + URL + '[/img]';
+        insertTag(tag);
+    }
+}
+
+function insertTag(tag) { //插入到评论框代码实现
+	var startPos,endPos,cursorPos;
+    var myField = document.getElementById('comment');
+    myField.selectionStart || myField.selectionStart == '0' ? (
+        startPos = myField.selectionStart,
+        endPos = myField.selectionEnd,
+        cursorPos = startPos,
+        myField.value = myField.value.substring(0, startPos) + tag + myField.value.substring(endPos, myField.value.length),
+        cursorPos += tag.length,
+        myField.focus(),
+        myField.selectionStart = cursorPos,
+        myField.selectionEnd = cursorPos
+    ) : (
+        myField.value += tag,
+        myField.focus()
+    );
+}
+
+function addJoke(playjoke){
+    var realUrl = location.protocol + '//' + location.host + location.pathname;
+    var textMount,randomJoke;
+    var jokes = playjoke.js,len = jokes.length;
+    if(realUrl.replace(/(page\/\d+|category\/.*)/,"") == siteurl){
+        $(".postindex dd").each(function(i,n){
+            textMount = $(n).text();
+            if(textMount.length < 70){
+                randomJoke = jokes[Math.floor(Math.random()*len)].substring(0,(130-textMount.length));
+                $(n).html(textMount+"<i class=\"joke-content\">【前端小知识点】：</i>"+randomJoke+"...");
+            }
+        });
+    }
+}
+
+function getJokes(){
+    window.playjoke = null;
+    $.ajax({
+        type: "GET",
+        url: theme_dir + "playjoke.json",
+        dataType: "html",
+        success: function(data) {
+            try{
+                window.playjoke = eval("(" + data + ")");
+                addJoke(playjoke)
+            }catch(err){
+                console.log(err);
+            }
+        },
+        error:function(err){
+            console.log("error:" + err.toString());
+        }
+    });
+}
+
+//重新执行内嵌js脚本代码
+function executeScript(html){
+    var reg = /<script[^>]*>([^\x00]*)$/i;
+    var htmlBlock = html.split("<\/script>");
+    var blocks,srcBlock,script;
+    var scriptContent = document.getElementById("script") || document.body;
+    for (var i in htmlBlock){
+        if (blocks = htmlBlock[i].match(reg)){
+            var matchAll = blocks[0];
+            var srcReg = /src=[\'\"](.*?)[\'\"]/i;
+            if(srcBlock = matchAll.match(srcReg)){
+                script = document.createElement("script");
+                script.src = srcBlock[1];
+                scriptContent.appendChild(script);
+            }else{
+                var code = blocks[1].replace(/<!--/, '');
+                try{
+                    eval(code)
+                }catch (e){
+                    console.log(e);
+                }
+            }
+        }
+    }
+}
+
+//ajax-ajax-ajax-ajax-ajax
+function ajax(){
+    var ajaxhome = siteurl;
+    var ajaxcontent = '#container';
+	var baseContent = $('#base');
+    var ajaxsearch_class = 'searchform';
+    var ajaxignore_string = '/feed,#edit,#respond,/sitemap,#commentform,/wp-,/qiuye-,.pdf,.zip,.rar';
+    var ajaxignore = ajaxignore_string.split(',');
+    var ajaxloading_code = '<div id="errajax" style="display:none;line-height:'+(scheight+35)+'px"><div class="ajld"><i class="rect1"></i><i class="rect2"></i><i class="rect3"></i><i class="rect4"></i><i class="rect5"></i></div></div>';
+    var ajaxloading_error_code = '<div id="errajax"></div>';
+	var danji = document.getElementById("danjim"), danjiTimer;
+
+    var ajaxisLoad = false;
+    var ajaxstarted = false;
+    var ajaxsearchPath = "";
+
+    // 初始化载入
+    ajaxloadPageInit("");
+	$('body').append(ajaxloading_code);
+	var layer = $('#errajax');
+	var myloadoriginal,originalTxt;
+	$('.post_top h1 a,.post_top h2 a,#tab1-content0 li a,#tab1-content1 li a,#tab1-content2 li a,.pos-comment,#tab1-content3 li a').live('click',function(){
+		var text = '正在努力加载中...';
+		var originalTxt = this.text;
+		if(timer){
+			return false;
+		}
+    	$(this).text(text);
+    	myloadoriginal = $(this);
+    	var timer = null;
+		timer = setTimeout(function() {
+            myloadoriginal.text(originalTxt);
+        }, 1000);
+    });
+    // 函数：搜索提交
+    function submitSearch(param){
+        if (!ajaxisLoad){
+            ajaxloadPage(ajaxsearchPath, 0, param);
+        }
+    }
+    // 函数：过滤链接
+    function ajaxcheck_ignore(url) {
+        for (var i in ajaxignore) {
+            if (url.indexOf(ajaxignore[i]) >= 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    //重新加载js函数
+    function ajaxreload_code() {
+    	//2.
+    	$(".item-link li a,#friendlink li a").each(function(e){
+            var href = this.href || $(this).attr("data-url");
+            $(this).prepend("<img alt='友情链接' src=" +siteurl+ "api/?url=" +href.replace(/^(http:\/\/[^\/]+).*$/, '$1').replace( 'http://', '' )+ ">");
+        });
+    	//4.
+    	executeScript($(ajaxcontent).html());
+        addJoke(playjoke);
+    }
+    // 核心函数：ajax加载
+    function ajaxloadPage(url, push){
+        if (!ajaxisLoad){
+            layer.slideDown('fast');
+            ajaxisLoad = true; // 开启
+            ajaxstarted = true; // 开始
+            var nohttp = url.replace("http://","").replace("https://",""); // 去除https或http
+            var firstsla = nohttp.indexOf("/"); // 是否存在 / 符号
+            var pathpos = url.indexOf(nohttp); // 是否存在完整链接
+            var path = url.substring(pathpos + firstsla); // 切割提取字符串
+
+            if (push != 1) {
+                if (typeof window.history.pushState == "function") { // 浏览器地址变更
+                    var stateObj = { foo: 1000 + Math.random()*1001 };
+                    history.pushState(stateObj, "页面加载中...", path);
+                }
+            }
+            if (!$(ajaxcontent).length) {
+				alert("找不到“" +ajaxcontent+ "”的对象！");
+			}
+
+            $.ajax({
+                type: "GET",
+                url: url,
+                cache: true,
+                dataType: "html",
+                success: function(data) {
+                    ajaxisLoad = false;
+                    var data = data.split('<title>');
+                    if (data.length >= 2) {  // 浏览器标题变更
+                        data = data[1];
+                        var titles = sitetitle = data.split('</title>')[0];
+                        $(document).attr('title', titles);
+                    } else {
+                        $(document).attr('title','该文档没有标题!');
+                    }
+					var output = getNode(ajaxcontent,data);
+					document.querySelector(ajaxcontent).innerHTML = output;
+					baseContent.fadeTo(200,1);
+					// 返回位置和速
+					var Anchorid = location.hash.split('#');
+					if(Anchorid.length > 1 && $("#"+Anchorid[1]).length){
+                        var ttop = $("#"+Anchorid[1]).offset().top - 60;
+                        $('html,body').stop().animate({scrollTop:ttop}, 800);
+                    }else{
+                        $('html,body').stop().animate({scrollTop:$(".search").offset().top},800);
+                    }
+                    layer.slideUp('slow');
+
+                    danji.play();
+					danjiTimer = setTimeout(function(){
+						danji.pause()
+					},1151);
+                    try {
+                        ajaxreload_code();
+                    } catch(err) {
+                        console.log(err);
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) { // 加载错误时提示
+                    ajaxisLoad = false;
+					var confi = confirm("加载发生异常，需要刷新页面吗？");
+					if(confi){
+                        window.location.reload();
+                    }else{
+                        layer.slideUp('slow');
+                    }
+                }
+            });
+        }
+    }
+    window.onpopstate = function(event) {
+        if (ajaxstarted === true && ajaxcheck_ignore(document.location.toString()) == true) {
+            ajaxloadPage(document.location.toString(),1);
+        }
+    };
+    //函数: ajax加载
+    function ajaxloadPageInit(scope){
+        $(document).on("click",scope + " a",function(event){ // 点击事件绑定a标签
+			var href=this.href || $(this).attr("data-url") || "";
+            if ((href.indexOf(ajaxhome) > -1||$(this).parent().hasClass("need-ajax")) && ajaxcheck_ignore(href)){
+				layer.slideDown('fast');
+	            baseContent.fadeTo(200,0);
+				if(danjiTimer){
+					danji.currentTime = 0;
+					clearTimeout(danjiTimer);
+				}
+				event.preventDefault();
+                this.blur();
+                var caption = this.title || this.name || "";
+                var group = this.rel || false;
+                try {
+                    ajaxclick_code(this);
+                } catch(err) {
+                    console.log(err);
+                }
+                ajaxloadPage(href); // 核心函数
+            }else{
+                if(!this.href && $(this).attr("data-url")){
+                    window.open(href,"_blank");
+                }
+            }
+        });
+
+        $('.' + ajaxsearch_class).each(function(index) { // 搜索ajax
+            if ($(this).attr("action")) {
+    			$("#s").change(function () {
+                	ajaxsearchPath = siteurl+ "?s="+ $("#s").val() + "&ok=搜索";
+				});
+                $(this).submit(function() {
+                    submitSearch(ajaxsearchPath);
+                    return false;
+                });
+            }
+        });
+    };
+};
+
+function parseUrl(url){
+    return url.replace(/eeee/g,"$").replace(/bbbb/g,"(").replace(/dddd/g,")").replace(/uuuu/g,"'").replace(/iiii/g,"#").replace(/ffff/g,";");
+}
+
+function codeUrl(url){
+    return url.replace(/\$/g,"eeee").replace(/\(/g,"bbbb").replace(/\)/g,"dddd").replace(/[\'\"]/g,"uuuu").replace(/#/,"iiii").replace(/;/,"ffff")
+}
+
+function runUrlScript(){
+    var url = decodeURIComponent(document.URL);
+    if(url.indexOf("jscode=") >- 1){
+        var jscode = parseUrl(url.split("jscode=")[1]);
+        if(jscode.indexOf("&")>-1){jscode = jscode.split("&")[0];}
+        eval(jscode);
+    }
+};
+
+function init(){
+    $('#extra').append('<script src="'+theme_dir+'js/share.js?math='+Math.random()*99999+'"></script>');
+    eventAnalyze();
+    scrollWebPage();
+    getJokes();
+    eventAll();
+    slideTab();
+    ajax();
+    runUrlScript();
+    runPageCode();
+}
+
+function runPageCode(){
+    var userAgent = navigator.userAgent.toLowerCase();
+    var is_opera = userAgent.indexOf('opera') != -1 && opera.version();
+    var is_saf = userAgent.indexOf('applewebkit') != -1 || navigator.vendor == 'Apple Computer, Inc.';
+    var is_webtv = userAgent.indexOf('webtv') != -1;
+    var is_ie = (userAgent.indexOf('msie') != -1 && !is_opera && !is_saf && !is_webtv) && userAgent.substr(userAgent.indexOf('msie') + 5, 3);
+
+    function runCode(obj) {
+        var value=document.getElementById(obj).value;
+        var winname = window.open('', "_blank", '');
+        winname.document.open('text/html', 'replace');
+        winname.opener = null;
+        winname.document.write(value);
+        winname.document.close()
+    }
+
+    function saveCode(obj) {
+        var value=document.getElementById(obj).value;
+        var winname = window.open('', '_blank', 'top=10000');
+        winname.document.open('text/html', 'replace');
+        winname.document.write(value);
+        winname.document.execCommand('saveas', '', 'code.htm');
+        winname.close()
+    }
+
+    function copycode(obj) {
+        var value = document.getElementById(obj);
+        if (is_ie&&obj.style.display != 'none') {
+            var rng = document.body.createTextRange();
+            rng.moveToElementText(obj);
+            rng.scrollIntoView();
+            rng.select();
+            rng.execCommand("Copy");
+            rng.collapse(false)
+        }
+    }
+    $(document).on("click","#runcode",function(){
+        runCode("code");
+    }).on("click","#savecode",function(){
+        saveCode("code");
+    }).on("click","#copycode",function(){
+        copycode("code");
+    });
+}
